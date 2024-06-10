@@ -13,7 +13,7 @@ use App\Http\Controllers\AdminController;
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| be assigned to the "web" middleware group. Make something great!z
 |
 */
 
@@ -28,6 +28,22 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/redirect', [HomeController::class, 'redirect']);
+Route::view('/daftar-transaksi','home.daftar-transaksi')->name('home.daftar-transaksi');
+Route::view('/product','home.product')->name('home.product');
+Route::view('/formulir-pembayaran','home.bayar')->name('home.formulir');
+Route::view('/bayar','home.pembayaran')->name('home.pembayaran');
+
+// Route::get('/daftar-transaksi', [HomeController::class, 'daftarTransaksi']);
+// Route::get('/product', function(){
+//     return view('home.product');
+// })->name('home.product');
+// Route::get('/add-to-cart', [HomeController::class, 'addToCart']);
+// Route::get('/formulir-pembayaran', [HomeController::class, 'formPembayaran']);
+// Route::get('/pembayaran', [HomeController::class, 'pembayaran']);
+// Route::get('/pembayaran', [HomeController::class, 'pembayaran']);
+
 
 route::get('/redirect', [HomeController::class, 'redirect']);
 

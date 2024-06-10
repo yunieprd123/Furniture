@@ -9,7 +9,7 @@
         content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
     <!-- title -->
-    <title>Menak Furniture</title>
+    <title>{{$judul ?? ''}} Menak Furniture</title>
 
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="home/assets/img/logo-menak-furniture.png">
@@ -66,71 +66,14 @@
             </div>
         </div>
     </div>
-    <!-- end search area -->
 
-    <!-- hero area -->
-    @include('home.partials.hero_area')
-    <!-- end hero area -->
 
-    <!-- features list section -->
-    <div class="list-section pt-80 pb-80">
-        <div class="container">
+    <div class="product-section mt-150 mb-150">
 
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                    <div class="list-box d-flex align-items-center">
-                        <div class="list-icon">
-                            <i class="fas fa-shipping-fast"></i>
-                        </div>
-                        <div class="content">
-                            <h3>Gratis Ongkos Kirim</h3>
-                            <!-- <p>Ketika belanja lebih dari Rp. 150.000</p> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                    <div class="list-box d-flex align-items-center">
-                        <div class="list-icon">
-                            <i class="fas fa-phone-volume"></i>
-                        </div>
-                        <div class="content">
-                            <h3>Layanan 24/7</h3>
-                            <!-- <p>Dapatkan layanan setiap hari</p> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="list-box d-flex justify-content-start align-items-center">
-                        <div class="list-icon">
-                            <i class="fas fa-sync"></i>
-                        </div>
-                        <div class="content">
-                            <h3>Pengembalian Dana</h3>
-                            <!-- <p>Dapatkan pengembalian dana dalam 3 hari!</p> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        @yield('content')
     </div>
-    <!-- end features list section -->
 
-    <!-- product section -->
-    @include('home.partials.product_section')
-    <!-- end product section -->
-
-    @include('home.partials.cart')
-   
-    @include('home.partials.advertisement')
-
-    @include('home.partials.news')
-    
-    {{-- @include('home.partials.footer') --}}
-    <!-- end footer -->
-
-    <!-- copyright -->
-    <div class="copyright" >
+    <div class="copyright" style="margin-top: 40vh;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
