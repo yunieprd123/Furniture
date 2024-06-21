@@ -2,29 +2,64 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use Illuminate\Support\Facades\Auth;
-
 use App\Models\User;
+
+use App\Models\Product;
+
+use App\Models\Transaksi;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
 
     public function index()
     {
-        return view('home.userpage');
+        $data['product'] = Product::all();
+        return view('home.userpage', $data);
     }
 
-    public function redirect()
+    // public function redirect()
+    // {
+    //     $usertype = Auth::user()->usertype;
+    //     if ($usertype == '1') {
+    //         return view('admin.home');
+    //     } else {
+    //         return view('home.userpage');
+    //     }
+    // }
+
+
+    public function addToCart($id)
     {
-        $usertype=Auth::user()->usertype;
-        if($usertype=='1')
-        {
-            return view('admin.home');
-        }
-        else{
-            return view('home.userpage');
-        }
+        $product = Product::find($id);
+        $user_id = Auth::user()->id;
+
+        $qty = 1;
+        $total_price = $qty * $product->harga_produk;
+
+        $number = rand(1,10000000);
+        $transaksi = new Transaksi();
+
+        $transaksi->product_id = $product->id;
+        $transaksi->number = '08'.$number;
+        $transaksi->user_id = $user_id;
+        $transaksi->qty = $qty;
+        $transaksi->total_price = $total_price;
+        $transaksi->payment_status = 1;
+        $transaksi->save();
+
+
+        return redirect()->route('home.daftar-transaksi');
+        // $transaksi = Transaksi::where('user_id',$user_id)->get();
+    }
+
+    public function daftarTransaksi()
+    {
+        $user_id = Auth::user()->id;
+
+        $transaksi = Transaksi::where('user_id', $user_id)->get();
+
+        return view('home.daftar-transaksi',compact('transaksi'));
     }
 }

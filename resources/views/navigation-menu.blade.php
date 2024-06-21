@@ -98,8 +98,14 @@
                                 {{ __('Manage Account') }}
                             </div>
 
+
+                            <x-dropdown-link href="{{ route('home.daftar-transaksi') }}">
+                                <div class="text-gray-900">
+                                    {{ __('Daftar Transaksi') }}
+                                </div>
+                            </x-dropdown-link>
                             <x-dropdown-link href="{{ route('profile.show') }}">
-                                <div class="text-gray-400">
+                                <div class="text-900-400">
                                     {{ __('Profile') }}
                                 </div>
                             </x-dropdown-link>

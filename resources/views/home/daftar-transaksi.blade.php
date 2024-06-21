@@ -19,6 +19,17 @@
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
+                        @foreach ($transaksi as $item)
+                            <tr>
+                                <td scope="row">{{$loop->iteration}}</td>
+                                <td>{{$item->product_id}}</td>
+                                <td>{{$item->user_id}}</td>
+                                <td>{{$item->total_price}}</td>
+                                <td>{{$item->qty}}</td>
+                                <td>{{$item->total_price}}</td>
+                                <td><a href="{{ route('home.formulir') }}" class="btn btn-primary">Bayar</a></td>
+                            </tr>
+                        @endforeach
                         <tr>
                             <td scope="row">1</td>
                             <td>Produk A</td>
@@ -46,69 +57,7 @@
                             <td>225,000</td>
                             <td><a href="{{ route('home.formulir') }}" class="btn btn-primary">Bayar</a></td>
                         </tr>
-                        <tr>
-                            <td scope="row">4</td>
-                            <td>Produk D</td>
-                            <td>Dewi</td>
-                            <td>120,000</td>
-                            <td>1</td>
-                            <td>120,000</td>
-                            <td><a href="{{ route('home.formulir') }}" class="btn btn-primary">Bayar</a></td>
-                        </tr>
-                        <tr>
-                            <td scope="row">5</td>
-                            <td>Produk E</td>
-                            <td>Eko</td>
-                            <td>90,000</td>
-                            <td>4</td>
-                            <td>360,000</td>
-                            <td><a href="{{ route('home.formulir') }}" class="btn btn-primary">Bayar</a></td>
-                        </tr>
-                        <tr>
-                            <td scope="row">6</td>
-                            <td>Produk F</td>
-                            <td>Fani</td>
-                            <td>110,000</td>
-                            <td>2</td>
-                            <td>220,000</td>
-                            <td><a href="{{ route('home.formulir') }}" class="btn btn-primary">Bayar</a></td>
-                        </tr>
-                        <tr>
-                            <td scope="row">7</td>
-                            <td>Produk G</td>
-                            <td>Gilang</td>
-                            <td>80,000</td>
-                            <td>5</td>
-                            <td>400,000</td>
-                            <td><a href="{{ route('home.formulir') }}" class="btn btn-primary">Bayar</a></td>
-                        </tr>
-                        <tr>
-                            <td scope="row">8</td>
-                            <td>Produk H</td>
-                            <td>Hana</td>
-                            <td>95,000</td>
-                            <td>2</td>
-                            <td>190,000</td>
-                            <td><a href="{{ route('home.formulir') }}" class="btn btn-primary">Bayar</a></td>
-                        </tr>
-                        <tr>
-                            <td scope="row">9</td>
-                            <td>Produk I</td>
-                            <td>Indra</td>
-                            <td>130,000</td>
-                            <td>1</td>
-                            <td>130,000</td>
-                            <td><a href="{{ route('home.formulir') }}" class="btn btn-primary">Bayar</a></td>
-                        </tr>
-                        <tr>
-                            <td scope="row">10</td>
-                            <td>Produk J</td>
-                            <td>Joko</td>
-                            <td>70,000</td>
-                            <td>3</td>
-                            <td>210,000</td>
-                            <td><a href="{{ route('home.formulir') }}" class="btn btn-primary">Bayar</a></td>
-                        </tr>
+
                     </tbody>
                     <tfoot>
                     </tfoot>
