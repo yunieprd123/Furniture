@@ -15,10 +15,11 @@
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="single-product-item">
                         <div class="d-flex justify-content-center p-5">
-                           <img src="{{ asset('produk/' . $data->gambar_produk) }}" class="img-thumbnail" alt="">
+                            <img src="{{ asset('produk/' . $data->gambar_produk) }}" class="img-thumbnail"
+                                alt="">
                         </div>
                         <h3>{{ $data->nama_produk }}</h3>
-                        <p class="product-price"><span>{{$data->deskripsi}}</span> Rp. 1.400.000 </p>
+                        <p class="product-price"><span>{{ $data->deskripsi }}</span> Rp. 1.400.000 </p>
 
                         <div class="d-block my-2">
                             <a href="cart.html" class="cart-btn bg-primary"><i class="fa fa-eye"></i> Lihat Produk</a>
@@ -26,7 +27,8 @@
                         </div>
 
                         <div class="d-block my-2">
-                            <a href="{{ route('home.addToCart',$data->id) }}" class="cart-btn"><i class="fas fa-shopping-cart"></i>
+                            <a href="{{ route('home.addToCart', $data->id) }}" class="cart-btn"><i
+                                    class="fas fa-shopping-cart"></i>
                                 Add to Cart</a>
 
                         </div>

@@ -14,25 +14,31 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        DB::table('products')->insert([
             [
-                'name' => 'Admin',
-                'email' => 'admin@gmail.com',
-                'password' => Hash::make('password'),
+                'nama_produk' => 'Meja Belajar Kayu',
+                'deskripsi' => 'Meja belajar terbuat dari kayu jati berkualitas tinggi.',
+                'harga_produk' => 1500000,
+                'stok' => 10,
+                'gambar_produk' => 'meja_belajar.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name' => 'User One',
-                'email' => 'user1@gmail.com',
-                'password' => Hash::make('password'),
+                'nama_produk' => 'Kursi Santai',
+                'deskripsi' => 'Kursi santai dengan bantalan empuk, cocok untuk ruang tamu.',
+                'harga_produk' => 850000,
+                'stok' => 15,
+                'gambar_produk' => 'kursi_santai.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name' => 'User Two',
-                'email' => 'user2@gmail.com',
-                'password' => Hash::make('password'),
+                'nama_produk' => 'Rak Buku Minimalis',
+                'deskripsi' => 'Rak buku dengan desain minimalis, terbuat dari bahan berkualitas.',
+                'harga_produk' => 450000,
+                'stok' => 20,
+                'gambar_produk' => 'rak_buku.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
