@@ -58,7 +58,7 @@ class HomeController extends Controller
     {
         $user_id = Auth::user()->id;
 
-        $transaksi = Transaksi::where('user_id', $user_id)->get();
+        $transaksi = Transaksi::with(['user','product'])->where('user_id', $user_id)->get();
 
         return view('home.daftar-transaksi',compact('transaksi'));
     }

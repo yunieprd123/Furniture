@@ -13,7 +13,7 @@
         <div class="row">
             @foreach ($product as $data)
                 <div class="col-lg-4 col-md-6 text-center">
-                    <div class="single-product-item">
+                    <div class="single-product-item p-3">
                         <div class="d-flex justify-content-center p-5">
                             <img src="{{ asset('produk/' . $data->gambar_produk) }}" class="img-thumbnail"
                                 alt="">

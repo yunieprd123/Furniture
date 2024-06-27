@@ -105,7 +105,7 @@
                                 </div>
                             </x-dropdown-link>
                             <x-dropdown-link href="{{ route('profile.show') }}">
-                                <div class="text-900-400">
+                                <div class="text-gray-900">
                                     {{ __('Profile') }}
                                 </div>
                             </x-dropdown-link>
