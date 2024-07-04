@@ -4,8 +4,9 @@
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="section-title">
                     <h3><span class="orange-text">Produk</span> Kami</h3>
-                    <p>"Keahlian dan keindahan terwujud dalam setiap produk kami. Menak Furniture yang
-                        berkualitas,dengan menghadirkan sentuhan istimewa dalam ruangan Anda."</p>
+                    <p>"Dapatkan koleksi furniture elegan dan fungsional untuk setiap ruangan di rumah Anda di Menak
+                        Furniture. Tambahkan sentuhan indah ke rumah Anda dengan furniture dari Menak Furniture hari
+                        ini!"</p>
                 </div>
             </div>
         </div>

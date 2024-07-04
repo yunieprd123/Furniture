@@ -15,38 +15,20 @@
                     <nav class="main-menu">
                         <ul>
                             <li class="current-list-item"><a href="#">Home</a>
-                                <!-- <ul class="sub-menu">
-          <li><a href="index.html">Static Home</a></li>
-          <li><a href="index_2.html">Slider Home</a></li>
-         </ul> -->
                             </li>
                             <li><a href="about.html">Tentang Kami</a></li>
                             <li><a href="#">Layanan Kami</a>
                                 <ul class="sub-menu">
-                                    <li><a href="404.html">Furniture Kayu Jati</a></li>
-                                    <li><a href="about.html">Lemari Kayu Jati</a></li>
-                                    <li><a href="cart.html">Meja Kayu</a></li>
-                                    <li><a href="checkout.html">Custom Design</a></li>
-                                    <li><a href="contact.html">Pintu Jati</a></li>
-                                    <li><a href="news.html">Mini Furniture</a></li>
-                                    <li><a href="shop.html">Meja Makan</a></li>
+                                    <li><a href="{{ route('home.furniture-kayu-jati') }}">Furniture Kayu Jati</a></li>
+                                    <li><a href="{{ route('home.lemari-kayu-jati') }}">Lemari Kayu Jati</a></li>
+                                    <li><a href="{{ route('home.meja-kayu-jati') }}">Meja Kayu</a></li>
+                                    <li><a href="{{ route('home.custom-design') }}">Custom Design</a></li>
+                                    <li><a href="{{ route('home.mini-furniture') }}">Mini Furniture</a></li>
                                 </ul>
                             </li>
                             <li><a href="news.html">Service Furniture</a>
-                                <!-- <ul class="sub-menu">
-          <li><a href="news.html">News</a></li>
-          <li><a href="single-news.html">Single News</a></li>
-         </ul> -->
                             </li>
                             <li><a href="contact.html">Kontak Kami</a></li>
-                            <!-- <li><a href="shop.html">Shop</a>
-         <ul class="sub-menu">
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="checkout.html">Check Out</a></li>
-          <li><a href="single-product.html">Single Product</a></li>
-          <li><a href="cart.html">Cart</a></li>
-         </ul>
-        </li> -->
                             <li>
                                 <div class="header-icons">
                                     <!-- <a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a> -->

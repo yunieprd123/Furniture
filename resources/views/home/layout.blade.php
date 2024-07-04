@@ -9,7 +9,8 @@
         content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
     <!-- title -->
-    <title>{{$judul ?? ''}} Menak Furniture</title>
+    <title> 
+        @yield('title'){{$judul ?? ''}} | Menak Furniture</title>
 
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="home/assets/img/logo-menak-furniture.png">
@@ -64,12 +65,15 @@
     </div>
 
 
-    <div class="product-section mt-150 mb-150">
+    <div class="product-section mt-150 mb-150" style="margin: 30vh 0">
 
         @yield('content')
     </div>
 
-    <div class="copyright" style="margin-top: 40vh;">
+
+
+    @include('home.partials.footer')
+    <div class="copyright">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12">

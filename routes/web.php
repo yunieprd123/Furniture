@@ -34,8 +34,17 @@ Route::middleware([
 
 
 
+
 // Route::get('/redirect', [HomeController::class, 'redirect']);
 Route::view('/product', 'home.product')->name('home.product');
+Route::view('/tentang-kami', 'home.tentang-kami')->name('home.tentang-kami');
+Route::view('/furniture-kayu-jati', 'home.furniture-kayu-jati')->name('home.furniture-kayu-jati');
+Route::view('/lemari-kayu-jati', 'home.lemari-kayu-jati')->name('home.lemari-kayu-jati');
+Route::view('/meja-kayu-jati', 'home.meja-kayu-jati')->name('home.meja-kayu-jati');
+Route::view('/custom-design', 'home.custom-design')->name('home.custom-design');
+Route::view('/mini-furniture', 'home.mini-furniture')->name('home.mini-furniture');
+
+
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/formulir-pembayaran/{id}', [TransaksiController::class, 'buatOrder'])->name('home.bayar');

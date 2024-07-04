@@ -15,6 +15,7 @@
                             <th>Harga</th>
                             <th>Qty</th>
                             <th>Total</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -27,7 +28,21 @@
                                 <td>Rp. {{ number_format($item->product->harga_produk) }}</td>
                                 <td>{{ $item->qty }}</td>
                                 <td>Rp.{{ number_format($item->total_price) }}</td>
-                                <td><a href="{{ route('home.bayar',$item->id) }}" class="btn btn-primary">Bayar</a></td>
+                                <td>
+                                    @if ($item->payment_status == '1')
+                                        <button class="btn btn-warning">Menunggu Pembayaran</button>
+                                    @elseif($item->payment_status == '2')
+                                        <button class="btn btn-success">Sudah Dibayar</button>
+                                    @elseif($item->payment_status == '3')
+                                        <button class="btn btn-secondary">Kadaluarsa</button>
+                                    @elseif($item->payment_status == '4')
+                                        <button class="btn btn-danger">Batal</button>
+                                    @else
+                                        <button class="btn btn-info">Status Tidak Valid</button>
+                                    @endif
+                                </td>
+
+                                <td><a href="{{ route('home.bayar', $item->id) }}" class="btn btn-primary">Bayar</a></td>
                             </tr>
                         @endforeach
 
@@ -42,4 +57,3 @@
         </div>
     </div>
 @endsection
-
