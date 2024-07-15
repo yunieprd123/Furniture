@@ -1,4 +1,5 @@
 @extends('home.layout')
+@section('title','Daftar Transaksi')
 @section('content')
     <div class="product-section">
         <div class="container">
@@ -10,6 +11,7 @@
                         </caption>
                         <tr>
                             <th>#</th>
+                            <th>Tanggal Transaksi</th>
                             <th>Nama Produk</th>
                             <th>Nama Pembeli</th>
                             <th>Harga</th>
@@ -23,6 +25,7 @@
                         @foreach ($transaksi as $item)
                             <tr>
                                 <td scope="row">{{ $loop->iteration }}</td>
+                                <td>{{ $item->created_at->translatedFormat('H:i, l d F Y') }}</td>
                                 <td>{{ $item->product->nama_produk }}</td>
                                 <td>{{ $item->user->name }}</td>
                                 <td>Rp. {{ number_format($item->product->harga_produk) }}</td>

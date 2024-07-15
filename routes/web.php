@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PaymentCallBackController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransaksiController;
 
@@ -76,5 +77,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/daftar-transaksi', [HomeController::class, 'daftarTransaksi'])->name('home.daftar-transaksi');
 });
 
+Route::post('payments/midtrans-notification', [PaymentCallBackController::class, 'receive']);
 
 route::get('/view_catagory', [AdminController::class, 'view_catagory']);

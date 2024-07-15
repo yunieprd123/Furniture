@@ -10,7 +10,7 @@ use App\Services\Midtrans\Midtrans;
 class CallbackService extends Midtrans
 {
     protected $notification;
-    protected $order;
+    protected $transaksi;
     protected $serverKey;
  
     public function __construct()
@@ -23,6 +23,7 @@ class CallbackService extends Midtrans
  
     public function isSignatureKeyVerified()
     {
+
         return ($this->_createLocalSignatureKey() == $this->notification->signature_key);
     }
  
@@ -52,19 +53,16 @@ class CallbackService extends Midtrans
  
     public function getOrder()
     {
-        return $this->order;
+        return $this->transaksi;
     }
  
     protected function _createLocalSignatureKey()
     {
-        $orderId = $this->order->number;
-        $statusCode = $this->notification->status_code;
-        $grossAmount = $this->order->total_price;
-        $serverKey = $this->serverKey;
-        $input = $orderId . $statusCode . $grossAmount . $serverKey;
-        $signature = openssl_digest($input, 'sha512');
+        return hash('sha512',
+        $this->notification->order_id . $this->notification->status_code .
+        $this->notification->gross_amount . $this->serverKey);
  
-        return $signature;
+
     }
  
     protected function _handleNotification()
@@ -72,9 +70,13 @@ class CallbackService extends Midtrans
         $notification = new Notification();
  
         $orderNumber = $notification->order_id;
+
         $order = Transaksi::where('order_id', $orderNumber)->first();
- 
+     
+
         $this->notification = $notification;
-        $this->order = $order;
+        $this->transaksi = $order;
+
+      
     }
 }

@@ -19,15 +19,6 @@ class HomeController extends Controller
         return view('home.userpage', $data);
     }
 
-    // public function redirect()
-    // {
-    //     $usertype = Auth::user()->usertype;
-    //     if ($usertype == '1') {
-    //         return view('admin.home');
-    //     } else {
-    //         return view('home.userpage');
-    //     }
-    // }
 
 
     public function addToCart($id)
@@ -58,7 +49,7 @@ class HomeController extends Controller
     {
         $user_id = Auth::user()->id;
 
-        $transaksi = Transaksi::with(['user','product'])->where('user_id', $user_id)->get();
+        $transaksi = Transaksi::with(['user','product'])->where('user_id', $user_id)->latest()->get();
 
         return view('home.daftar-transaksi',compact('transaksi'));
     }
