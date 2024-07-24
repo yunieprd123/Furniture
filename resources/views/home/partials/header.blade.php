@@ -1,3 +1,13 @@
+<style>
+    #logincss {
+        margin-left: 3px;
+    }
+
+    #registercss {
+        margin-right: 7px;
+    }
+</style>
+
 <div class="top-header-area" id="sticker">
     <div class="container">
         <div class="row">
@@ -38,43 +48,52 @@
                             </li>
                             <li>
                                 <div class="header-icons">
-                                    @if (Route::has('login'))
-                                        @auth
+                                    @auth
+                                        <div class="dropdown">
+                                            <a href="#" class="dropdown-toggle" type="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                {{ Auth::user()->name }}
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li class="w-100"><a class="dropdown-item text-dark w-100"
+                                                        href="{{ route('home.daftar-transaksi') }}">Transaksi</a></li>
 
-                                            <x-app-layout>
+                                                <li class="w-100">
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                        style="display: none;">
+                                                        @csrf
+                                                    </form>
 
-                                            </x-app-layout>
-                                        @else
-                                <li class="nav-item">
-                                    <a class="btn btn-primary" id="logincss" href="{{ route('login') }}">
-                                        Login</a>
+                                                    <a class="dropdown-item text-dark w-100" href="{{ route('logout') }}"
+                                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    @endauth
+
+
+                                </div>
+                            </li>
+
+                            @guest
+                                <li>
+                                    <div class="">
+                                        <a class="btn btn-sm btn-primary" href="{{ route('login') }}">
+                                            Login</a>
+                                        <a class="btn btn-sm btn-success" href="{{ route('register') }}">
+                                            Register</a>
+                                    </div>
+                                 
                                 </li>
-                                <li class="nav-item">
-                                    <a class="btn btn-success" href="{{ route('register') }}">
-                                        Register</a>
-                                </li>
-                            @endauth
-                            @endif
-
-                            <style>
-                                #logincss {
-                                    margin-left: 3px;
-                                }
-                            </style>
-                            <style>
-                                #registercss {
-                                    margin-right: 7px;
-                                }
-                            </style>
+                            @endguest
+                        </ul>
+                    </nav>
+                    <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+                    <div class="mobile-menu"></div>
+                    <!-- menu end -->
                 </div>
-                </li>
-                </ul>
-                </nav>
-                <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-                <div class="mobile-menu"></div>
-                <!-- menu end -->
             </div>
         </div>
     </div>
-</div>
 </div>

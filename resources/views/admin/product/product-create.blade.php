@@ -21,11 +21,11 @@
         </div>
         <div class="form-group mb-3">
             <label for="">Gambar Produk</label>
-            <input id="" class="form-control" type="file" name="gambar_produk">
+            <input id="" class="form-control" type="file" accept="image/*" name="gambar_produk">
         </div>
 
         <button type="submit" class="btn btn-primary">
-            Button
+            Tambahkan
         </button>
 
     </form>

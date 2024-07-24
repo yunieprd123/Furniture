@@ -22,15 +22,15 @@ use App\Http\Controllers\TransaksiController;
 
 route::get('/', [HomeController::class, 'index']);
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified',
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });
 
 
 
@@ -55,8 +55,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Dashboard Admin
     Route::prefix('dashboard')->group(function () {
-        Route::view('admin-dashboard', 'admin.layout');
-
+        Route::view('dashboard', 'admin.layout')->name('dashboard');
         // Produk
         Route::get('product', [ProductController::class, 'index'])->name('product.index');
         Route::get('product/create', [ProductController::class, 'create'])->name('product.create');
@@ -64,8 +63,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
         Route::post('product/update/{id}', [ProductController::class, 'update'])->name('product.update');
         Route::get('product/destroy/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
-
-
+        
         // Transaksi
         Route::get('transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
         Route::get('tansaksi/create', [TransaksiController::class, 'create'])->name('transaksi.create');
@@ -80,3 +78,6 @@ Route::middleware(['auth'])->group(function () {
 Route::post('payments/midtrans-notification', [PaymentCallBackController::class, 'receive']);
 
 route::get('/view_catagory', [AdminController::class, 'view_catagory']);
+
+
+require __DIR__ . '/auth.php';

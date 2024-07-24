@@ -22,7 +22,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $data->nama_produk }}</td>
                         <td>
-                            <img src="{{ asset('produk/' . $data->gambar_produk) }}" width="200" alt="">
+                            <img src="{{ asset('produk/'.$data->gambar_produk) }}" width="200" alt="">
                         </td>
                         <td>{{ number_format($data->harga_produk) }}</td>
                         <td>{{ $data->stok }}</td>
