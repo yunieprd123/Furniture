@@ -56,7 +56,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Dashboard Admin
     Route::prefix('dashboard')->group(function () {
-        Route::view('dashboard', 'admin.layout')->name('dashboard');
+        Route::view('/', 'admin.layout')->name('dashboard');
         // Produk
         Route::get('product', [ProductController::class, 'index'])->name('product.index');
         Route::get('product/create', [ProductController::class, 'create'])->name('product.create');
