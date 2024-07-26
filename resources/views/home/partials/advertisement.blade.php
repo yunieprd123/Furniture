@@ -12,7 +12,7 @@
 						<h2>Menak <span class="orange-text">Furniture</span></h2>
 						<p>Bergaya dengan keanggunan! Menak Furniture menawarkan lebih dari sekadar furnitur; kami hadir untuk membantu mengukir cerita kebahagiaan di setiap ruangan. Mari, temukan inspirasi baru untuk rumah impianmu!</p>
 						<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente facilis illo repellat veritatis minus, et labore minima mollitia qui ducimus.</p> -->
-						<a href="about.html" class="boxed-btn mt-4">know more</a>
+						<a href="{{ route('home.tentang-kami') }}" class="boxed-btn mt-4">know more</a>
 					</div>
 				</div>
 			</div>

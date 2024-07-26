@@ -24,9 +24,9 @@
                     <!-- menu start -->
                     <nav class="main-menu">
                         <ul>
-                            <li class="current-list-item"><a href="#">Home</a>
+                            <li class="current-list-item"><a href="{{url('/')}}">Home</a>
                             </li>
-                            <li><a href="about.html">Tentang Kami</a></li>
+                            <li><a href="{{route('home.tentang-kami')}}">Tentang Kami</a></li>
                             <li><a href="#">Layanan Kami</a>
                                 <ul class="sub-menu">
                                     <li><a href="{{ route('home.furniture-kayu-jati') }}">Furniture Kayu Jati</a></li>
@@ -38,7 +38,7 @@
                             </li>
                             <li><a href="news.html">Service Furniture</a>
                             </li>
-                            <li><a href="contact.html">Kontak Kami</a></li>
+                            <li><a href="{{route('home.kontak-kami')}}">Kontak Kami</a></li>
                             <li>
                                 <div class="header-icons">
                                     <!-- <a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a> -->

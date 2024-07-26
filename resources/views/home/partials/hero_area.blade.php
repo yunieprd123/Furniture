@@ -8,7 +8,7 @@
 							<h1>Timeless Elegance in Woodcraft</h1>
 							<div class="hero-btns">
 								<a href="shop.html" class="boxed-btn">Koleksi</a>
-								<a href="contact.html" class="bordered-btn">Kontak Kami</a>
+								<a href="{{route('home.kontak-kami')}}" class="bordered-btn">Kontak Kami</a>
 							</div>
 						</div>
 					</div>

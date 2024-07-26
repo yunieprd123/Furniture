@@ -22,11 +22,11 @@
                 <div class="footer-box pages">
                     <h2 class="widget-title">Menu Kami</h2>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">Tentang Kami</a></li>
-                        <li><a href="services.html">Layanan Kami</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="{{route('home.tentang-kami')}}">Tentang Kami</a></li>
+                        <li><a href="">Layanan Kami</a></li>
                         <li><a href="news.html">Service Furniture</a></li>
-                        <li><a href="contact.html">Kontak Kami</a></li>
+                        <li><a href="{{route('home.kontak-kami')}}">Kontak Kami</a></li>
                     </ul>
                 </div>
             </div>
