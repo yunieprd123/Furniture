@@ -23,7 +23,7 @@
                         <p class="product-price"><span>{{ $data->deskripsi }}</span> Rp.{{number_format($data->harga_produk)}} </p>
 
                         <div class="d-block my-2">
-                            <a href="cart.html" class="cart-btn bg-primary"><i class="fa fa-eye"></i> Lihat Produk</a>
+                            <a href="{{route('home.detail-product',$data->id)}}" class="cart-btn bg-primary"><i class="fa fa-eye"></i> Lihat Produk</a>
 
                         </div>
 

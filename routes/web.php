@@ -45,6 +45,7 @@ Route::view('/meja-kayu-jati', 'home.meja-kayu-jati')->name('home.meja-kayu-jati
 Route::view('/custom-design', 'home.custom-design')->name('home.custom-design');
 Route::view('/mini-furniture', 'home.mini-furniture')->name('home.mini-furniture');
 Route::view('/kontak-kami', 'home.kontak-kami')->name('home.kontak-kami');
+Route::get('detail-product/{id}',[HomeController::class,'detailProduct'])->name('home.detail-product');
 
 
 Route::middleware(['auth'])->group(function () {

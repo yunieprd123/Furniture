@@ -19,6 +19,13 @@ class HomeController extends Controller
         return view('home.userpage', $data);
     }
 
+    public function detailProduct($id)
+    {
+        $product = Product::find($id);
+
+
+        return view('home.detail-product', compact('product'));
+    }
 
 
     public function addToCart($id)
