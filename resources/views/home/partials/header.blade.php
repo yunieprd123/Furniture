@@ -29,7 +29,7 @@
                             <li><a href="{{route('home.tentang-kami')}}">Tentang Kami</a></li>
                             <li><a href="#">Layanan Kami</a>
                                 <ul class="sub-menu">
-                                    <li><a href="{{ route('home.furniture-kayu-jati') }}">Furniture Kayu Jati</a></li>
+                                    <li> <img src="{{asset('home/assets/img/logo-menak-furniture.png')}}" alt="" class="product-image">  <a href="{{ route('home.furniture-kayu-jati') }}">Furniture Kayu Jati</a></li>
                                     <li><a href="{{ route('home.lemari-kayu-jati') }}">Lemari Kayu Jati</a></li>
                                     <li><a href="{{ route('home.meja-kayu-jati') }}">Meja Kayu</a></li>
                                     <li><a href="{{ route('home.custom-design') }}">Custom Design</a></li>

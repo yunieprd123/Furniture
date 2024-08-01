@@ -532,7 +532,8 @@ ul.navbar-nav li.nav-item a.nav-link, ul.navbar-nav li.nav-item.active a.nav-lin
   position: absolute;
   z-index: 999;
   width: 100%;
-  padding: 25px 0;
+  padding: 18px 0;
+  background-color: #051922;
 }
 
 .top-header-area.white ul.navbar-nav li.nav-item a.nav-link, .top-header-area.white ul.navbar-nav li.nav-item.active a.nav-link {
@@ -2370,6 +2371,25 @@ ul.social-link-team li a {
   color: #fff;
   margin-bottom: 10px;
 }
+
+/* ------------------------------------------------------------------------- 
+
+
+# Button
+
+
+
+---------------------------------------------------------------------------- */
+
+
+
+
+.btn {
+  display: inline-block;
+  color: #fff;
+  padding: 10px 20px;
+}
+
 
 /* -----------------------------------------------------------------------------
 
