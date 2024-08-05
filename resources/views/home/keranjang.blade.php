@@ -23,13 +23,13 @@
 
                                 <div class="d-flex align-items-start border-bottom pb-3">
                                     <div class="mr-5">
-                                        <img src="https://www.bootdey.com/image/100x100/008B8B/000000" alt=""
-                                            class="avatar-lg rounded">
+                                        <img src="{{ asset('produk/' . $item->product->gambar_produk) }}"
+                                            style="height: 20vh;" alt="" class="rounded">
                                     </div>
                                     <div class="flex-grow-1 align-self-center overflow-hidden">
                                         <div>
                                             <h5 class="text-truncate font-size-18"><a href="#"
-                                                    class="text-dark">{{$item->product}} </a></h5>
+                                                    class="text-dark">{{ $item->product->nama_produk }} </a></h5>
                                             <p class="text-muted mb-0">
                                                 <i class="bx bxs-star text-warning"></i>
                                                 <i class="bx bxs-star text-warning"></i>
@@ -61,38 +61,32 @@
                                         <div class="col-md-4">
                                             <div class="mt-3">
                                                 <p class="text-muted mb-2">Price</p>
-                                                <h5 class="mb-0 mt-2"><span class="text-muted me-2"><del
-                                                            class="font-size-16 fw-normal">$500</del></span>$450</h5>
+                                                <h5 class="mb-0 mt-2"><span class="me-2">Rp.
+                                                        {{ number_format($item->product->harga_produk) }} </span></h5>
                                             </div>
                                         </div>
                                         <div class="col-md-5">
                                             <div class="mt-3">
                                                 <p class="text-muted mb-2">Quantity</p>
                                                 <div class="d-inline-flex">
-                                                    <select class="form-select form-select-sm w-xl">
-                                                        <option value="1">1</option>
-                                                        <option value="2" selected="">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                    </select>
+                                                    <input class="form-control" type="number" value="{{ $item->qty }}">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="mt-3">
                                                 <p class="text-muted mb-2">Total</p>
-                                                <h5>$900</h5>
+                                                <h5>Rp. {{ number_format($item->product->harga_produk * $item->qty) }}</h5>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
+
+
                         </div>
+                       
                     @endforeach
 
                     <!-- end card -->
@@ -106,7 +100,7 @@
                         </div> <!-- end col -->
                         <div class="col-sm-6">
                             <div class="text-sm-end mt-2 mt-sm-0">
-                                <a href="ecommerce-checkout.html" class="btn btn-success">
+                                <a href="{{route('home.bayar')}}" class="btn btn-success">
                                     <i class="mdi mdi-cart-outline me-1"></i> Checkout </a>
                             </div>
                         </div> <!-- end col -->
@@ -157,55 +151,8 @@
                     </div>
                 </div>
             </div>
-            <!-- end row -->
 
-            {{-- <div class="table-responsive" style="margin-top:10vh;">
-                <table class="table table-striped table-hover align-middle">
-                    <thead >
-                        <caption>
-                            Data Transaksi
-                        </caption>
-                        <tr>
-                            <th></th>
-                            <th>Tanggal Transaksi</th>
-                            <th>Nama Produk</th>
-                            <th>Nama Pembeli</th>
-                            <th>Harga</th>
-                            <th>Qty</th>
-                            <th>Total</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider">
-                        @foreach ($transaksi as $item)
-                            <tr class="table-body-row">
-                                <td scope="row">{{ $loop->iteration }}</td>
-                                <td>{{ $item->created_at->translatedFormat('H:i, l d F Y') }}</td>
-                                <td>
-                                    @if ($item->payment_status == '1')
-                                        <button class="btn btn-warning">Menunggu Pembayaran</button>
-                                    @elseif($item->payment_status == '2')
-                                        <button class="btn btn-success">Sudah Dibayar</button>
-                                    @elseif($item->payment_status == '3')
-                                        <button class="btn btn-secondary">Kadaluarsa</button>
-                                    @elseif($item->payment_status == '4')
-                                        <button class="btn btn-danger">Batal</button>
-                                    @else
-                                        <button class="btn btn-info">Status Tidak Valid</button>
-                                    @endif
-                                </td>
 
-                                <td><a href="{{ route('home.bayar', $item->id) }}" class="boxed-btn">Bayar</a></td>
-                            </tr>
-                        @endforeach
-
-                    </tbody>
-                    <tfoot>
-                    </tfoot>
-                </table>
-
-            </div> --}}
 
 
         </div>

@@ -13,9 +13,7 @@ class Transaksi extends Model
     protected $filable =
     [
         'number',
-        'product_id',
         'user_id',
-        'qty',
         'total_price',
         'payment_status',
         'snap_token'
@@ -27,9 +25,16 @@ class Transaksi extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
+
+
     public function product()
     {
-        return $this->belongsTo(Product::class, 'product_id');
+        return $this->belongsToMany(Product::class,'transaksi_products','transaksi_id','product_id');
+    }
+
+    public function transaksiProduct()
+    {
+        return $this->hasMany(TransaksiProduct::class);
     }
 
     protected static function boot()

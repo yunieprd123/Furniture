@@ -15,7 +15,7 @@
                 <div class="main-menu-wrap">
                     <!-- logo -->
                     <div class="site-logo">
-                        <a href="index.html">
+                        <a href="/">
                             <img src="home/assets/img/logo-menak.png" alt="">
                         </a>
                     </div>
@@ -29,7 +29,7 @@
                             <li><a href="{{route('home.tentang-kami')}}">Tentang Kami</a></li>
                             <li><a href="#">Layanan Kami</a>
                                 <ul class="sub-menu">
-                                    <li> <img src="{{asset('home/assets/img/logo-menak-furniture.png')}}" alt="" class="product-image">  <a href="{{ route('home.furniture-kayu-jati') }}">Furniture Kayu Jati</a></li>
+                                    <li>   <a href="{{ route('home.furniture-kayu-jati') }}"> <img src="{{asset('home/assets/img/logo-menak-furniture.png')}}" style="height: 30px; display: inline;" alt=""> Furniture Kayu Jati</a></li>
                                     <li><a href="{{ route('home.lemari-kayu-jati') }}">Lemari Kayu Jati</a></li>
                                     <li><a href="{{ route('home.meja-kayu-jati') }}">Meja Kayu</a></li>
                                     <li><a href="{{ route('home.custom-design') }}">Custom Design</a></li>
@@ -56,7 +56,7 @@
                                             </a>
                                             <ul class="dropdown-menu">
                                                 <li class="w-100"><a class="dropdown-item text-dark w-100"
-                                                        href="{{ route('home.daftar-transaksi') }}">Transaksi</a></li>
+                                                        href="{{ route('home.keranjang') }}">Keranjang </a></li>
 
                                                 <li class="w-100">
                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"

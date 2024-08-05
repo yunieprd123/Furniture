@@ -1,7 +1,8 @@
 @extends('home.layout')
+@section('title','Tentang Kami')
 @section('content')
     <div class="product-section">
-        <div class="container">
+        <div class="container" style="padding: 30vh 0;">
             <h3 class="text-center">Tentang Kami</h3>
             <p>
                 Selamat datang di Menak Furniture! Kami adalah penyedia furnitur berkualitas tinggi yang mengutamakan

@@ -16,4 +16,14 @@ class Product extends Model
         'stok',
         'gambar_produk'
     ];
+
+    public function transaksi()
+    {
+        return $this->belongsToMany(Transaksi::class);
+    }
+
+    public function transaksiProduct()
+    {
+        return $this->hasMany(TransaksiProduct::class);
+    }
 }

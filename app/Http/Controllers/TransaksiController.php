@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Midtrans\Snap;
+use App\Models\Cart;
 use Midtrans\Config;
 use App\Models\Transaksi;
+use App\Models\TransaksiProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TransaksiController extends Controller
 {
@@ -42,27 +45,46 @@ class TransaksiController extends Controller
     }
 
 
-    public function buatOrder($id)
+    public function buatOrder()
     {
-        $order = Transaksi::with('product')->find($id);
+
+        $carts = Cart::with('product')->where('user_id', Auth::user()->id)->whereStatus('On Cart')->get()->toArray();
+
+
+        $final_total = 0;
+
+        foreach ($carts as $price) {
+            $total_price = $price['product']['harga_produk'] * $price['qty'];
+            $final_total += $total_price;
+        }
+
+
+        $itemDetails = [];
+        foreach ($carts as $itemDetail) {
+            $itemDetails[] =
+                [
+                    'id' => $itemDetail['product']['id'],
+                    'price' => $itemDetail['product']['harga_produk'],
+                    'quantity' => $itemDetail['qty'],
+                    'name' => $itemDetail['product']['nama_produk']
+                ];
+        }
 
         $snapToken = '';
 
+        $order = new Transaksi();
+        $order->user_id = $carts[0]['user_id'];
+        $order->total_price = $final_total;
+        $order->payment_status = 1;
+        $order->number = 1;
+        $order->save();
 
         $payload = [
             'transaction_details' => [
                 'order_id' => $order->order_id,
-                'gross_amount' => $order->total_price,
+                'gross_amount' => $final_total,
             ],
-            'item_details' => [
-                [
-                    'id' => $order->product->id,
-                    'price' => $order->product->harga_produk,
-                    'quantity' => $order->qty,
-                    'name' => $order->product->nama_produk
-                ]
-
-            ],
+            'item_details' => $itemDetails,
             'customer_details' => [
                 'first_name' => $order->user->name,
                 'email' => $order->user->email,
@@ -70,20 +92,42 @@ class TransaksiController extends Controller
         ];
 
 
-        // dd($payload);
+        foreach ($carts as $cart) {
+            $transaksiProduct = new TransaksiProduct();
+            $transaksiProduct->transaksi_id = $order->id;
+            $transaksiProduct->product_id = $cart['product']['id'];
+            $transaksiProduct->total_price = $cart['product']['harga_produk'] * $cart['qty'];
+            $transaksiProduct->qty = $cart['qty'];
+            $transaksiProduct->save();
+        }
+
+
         if (empty($order->snap_token)) {
             $order->snap_token = Snap::getSnapToken($payload);
             $order->save();
         }
 
         $snapToken = $order->snap_token;
-        return view('home.bayar', compact('snapToken', 'order'));
+
+
+        $transaksi = $order;
+
+        // dd($transaksi);
+
+        return to_route('home.lengkapiPembayaran',['transaksi'=>$transaksi]);
     }
 
 
-    public function bayar($id)
+    public function lengkapiPembayaran($transaksi)
     {
-        $order = Transaksi::find($id);
+
+        $transaksi = Transaksi::with(['transaksiProduct.product'])->find($transaksi);
+        $snapToken = $transaksi->snap_token;
+        $order = $transaksi;
+
+
+        return view('home.bayar', compact('order','snapToken'));
+
     }
 
     public function show(Transaksi $transaksi)

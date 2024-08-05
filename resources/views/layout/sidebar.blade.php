@@ -47,7 +47,7 @@
                     </a>
 
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="pages/widgets.html" class="nav-link">
                         <i class="nav-icon fas fa-shopping-cart"></i>
                         <p>
@@ -55,8 +55,8 @@
                             <span class="right badge badge-danger">New</span>
                         </p>
                     </a>
-                </li>
-                <li class="nav-item">
+                </li> --}}
+                {{-- <li class="nav-item">
 
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
@@ -84,7 +84,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-shopping-bag"></i>
@@ -131,7 +131,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ url('view_catagory') }}">
                         <i class="nav-icon fas  fa-bars"></i>
                         <p>
@@ -139,7 +139,7 @@
                         </p>
                     </a>
 
-                </li>
+                </li> --}}
 
                 <li class="nav-item">
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

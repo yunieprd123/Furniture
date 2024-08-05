@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\PaymentCallBackController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransaksiController;
@@ -48,11 +49,10 @@ Route::view('/kontak-kami', 'home.kontak-kami')->name('home.kontak-kami');
 Route::get('detail-product/{id}',[HomeController::class,'detailProduct'])->name('home.detail-product');
 
 
-Route::middleware(['auth'])->group(function () {
+// Route::middleware(['auth'])->group(function () {
 
-    Route::get('/formulir-pembayaran/{id}', [TransaksiController::class, 'buatOrder'])->name('home.bayar');
-    // Route::get('/bayar/{id}', 'home.pembayaran')->name('home.pembayaran');
-});
+//     // Route::get('/bayar/{id}', 'home.pembayaran')->name('home.pembayaran');
+// });
 Route::middleware(['auth'])->group(function () {
 
     // Dashboard Admin
@@ -73,8 +73,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('transaksi/edit/{id}', [TransaksiController::class, 'edit'])->name('transaksi.edit');
     });
 
+    Route::get('/formulir-pembayaran', [TransaksiController::class, 'buatOrder'])->name('home.bayar');
+    Route::get('/lengkapi-pembayaran/{transaksi}', [TransaksiController::class, 'lengkapiPembayaran'])->name('home.lengkapiPembayaran');
+
     Route::get('/add-to-cart/{id}', [HomeController::class, 'addTocart'])->name('home.addToCart');
-    Route::get('/daftar-transaksi', [HomeController::class, 'daftarTransaksi'])->name('home.daftar-transaksi');
+    Route::get('/keranjang', [CartController::class, 'index'])->name('home.keranjang');
 });
 
 Route::post('payments/midtrans-notification', [PaymentCallBackController::class, 'receive']);
