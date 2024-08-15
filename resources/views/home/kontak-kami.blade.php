@@ -1,7 +1,7 @@
 @extends('home.layout')
 @section('title', 'Kontak Kami')
 @section('content')
-    <div class="product-section">
+    <div class="product-section" style="margin: 30vh; ">
         <div class="container">
 
             <h3> WhatsApp: <span class="text-warning">+62 823-3967-7216 </span>

@@ -14,7 +14,8 @@
                 </div>
             </div>
         </div>
-        <div class="container mt-5">
+        <div class="container mt-5 py-5">
+            <h3>Isi Keranjang anda</h3>
             <div class="row">
                 <div class="col-xl-8">
                     @foreach ($transaksi as $item)
@@ -69,7 +70,7 @@
                                             <div class="mt-3">
                                                 <p class="text-muted mb-2">Quantity</p>
                                                 <div class="d-inline-flex">
-                                                    <input class="form-control" type="number" value="{{ $item->qty }}">
+                                                    <input class="form-control" type="number" name="qty_{{ $item->id }}" data-id="{{ $item->id }}" value="{{ $item->qty }}">
                                                 </div>
                                             </div>
                                         </div>

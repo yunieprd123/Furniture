@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\PaymentCallBackController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransaksiController;
@@ -46,7 +47,7 @@ Route::view('/meja-kayu-jati', 'home.meja-kayu-jati')->name('home.meja-kayu-jati
 Route::view('/custom-design', 'home.custom-design')->name('home.custom-design');
 Route::view('/mini-furniture', 'home.mini-furniture')->name('home.mini-furniture');
 Route::view('/kontak-kami', 'home.kontak-kami')->name('home.kontak-kami');
-Route::get('detail-product/{id}',[HomeController::class,'detailProduct'])->name('home.detail-product');
+Route::get('detail-product/{id}', [HomeController::class, 'detailProduct'])->name('home.detail-product');
 
 
 // Route::middleware(['auth'])->group(function () {
@@ -57,7 +58,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Dashboard Admin
     Route::prefix('dashboard')->group(function () {
-        Route::view('/', 'admin.layout')->name('dashboard');
+        Route::get('/',[DashboardAdminController::class,'index'] )->name('dashboard');
         // Produk
         Route::get('product', [ProductController::class, 'index'])->name('product.index');
         Route::get('product/create', [ProductController::class, 'create'])->name('product.create');
@@ -65,12 +66,22 @@ Route::middleware(['auth'])->group(function () {
         Route::get('product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
         Route::post('product/update/{id}', [ProductController::class, 'update'])->name('product.update');
         Route::get('product/destroy/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
-        
+
+
         // Transaksi
         Route::get('transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
         Route::get('tansaksi/create', [TransaksiController::class, 'create'])->name('transaksi.create');
         Route::post('transaksi/store', [TransaksiController::class, 'store'])->name('transaksi.store');
         Route::get('transaksi/edit/{id}', [TransaksiController::class, 'edit'])->name('transaksi.edit');
+
+
+        // Review/Komentar
+        // Route::get('product', [ProductController::class, 'index'])->name('product.index');
+        // Route::get('product/create', [ProductController::class, 'create'])->name('product.create');
+        // Route::post('product/store', [ProductController::class, 'store'])->name('product.store');
+        // Route::get('product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
+        // Route::post('product/update/{id}', [ProductController::class, 'update'])->name('product.update');
+        // Route::get('product/destroy/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
     });
 
     Route::get('/formulir-pembayaran', [TransaksiController::class, 'buatOrder'])->name('home.bayar');
