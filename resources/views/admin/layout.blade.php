@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Menak Furniture | Admin</title>
 
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -17,6 +18,7 @@
     <link rel="stylesheet"
         href="{{ asset('admin/dist/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
     <!-- iCheck -->
+    
     <link rel="stylesheet" href="{{ asset('admin/dist/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
     <!-- JQVMap -->
     <link rel="stylesheet" href="{{ asset('admin/dist/plugins/jqvmap/jqvmap.min.css') }}">
@@ -28,6 +30,13 @@
     <link rel="stylesheet" href="{{ asset('admin/dist/plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('admin/dist/plugins/summernote/summernote-bs4.min.css') }}">
+
+    <link rel="stylesheet" href="{{asset('admin/dist/plugins/datatables-bs4/js/dataTables.bootstrap4.min.css')}} ">
+    <link rel="stylesheet" href="{{asset('admin/dist/plugins/datatables-responsive/css/responsive.bootstrap4.css')}} ">
+
+    <link rel="stylesheet" href="{{asset('admin/dist/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}} ">
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
@@ -74,6 +83,8 @@
 
         </div>
 
+        @stack('script')
+
         <!-- jQuery -->
         <script src="{{ asset('admin/dist/plugins/jquery/jquery.min.js') }}"></script>
         <!-- jQuery UI 1.11.4 -->
@@ -89,19 +100,10 @@
         <!-- Sparkline -->
         <script src="{{ asset('admin/dist/plugins/sparklines/sparkline.js') }}"></script>
         <!-- JQVMap -->
-        <script src="{{ asset('admin/dist/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
-        <script src="{{ asset('admin/dist/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
-        <!-- jQuery Knob Chart -->
-        <script src="{{ asset('admin/dist/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
         <!-- daterangepicker -->
         <script src="{{ asset('admin/dist/plugins/moment/moment.min.js') }}"></script>
         <script src="{{ asset('admin/dist/plugins/daterangepicker/daterangepicker.js') }}"></script>
         <!-- Tempusdominus Bootstrap 4 -->
-        <script src="{{ asset('admin/dist/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
-        <!-- Summernote -->
-        <script src="{{ asset('admin/dist/plugins/summernote/summernote-bs4.min.js') }}"></script>
-        <!-- overlayScrollbars -->
-        <script src="{{ asset('admin/dist/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
         <!-- AdminLTE App -->
         <script src="{{ asset('admin/dist/js/adminlte.js') }}"></script>
         <!-- AdminLTE for demo purposes -->

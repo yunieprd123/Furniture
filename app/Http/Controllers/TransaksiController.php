@@ -48,7 +48,8 @@ class TransaksiController extends Controller
     public function buatOrder()
     {
 
-        $carts = Cart::with('product')->where('user_id', Auth::user()->id)->whereStatus('On Cart')->get()->toArray();
+        $carts = Cart::with('product')->where('user_id', Auth::user()->id)->whereStatus('Dalam Keranjang')->get()->toArray();
+        Cart::where('user_id', Auth::user()->id)->update(['status' => 'Dalam Transaksi']);
 
 
         $final_total = 0;

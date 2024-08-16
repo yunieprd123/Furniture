@@ -24,12 +24,15 @@
                     <!-- menu start -->
                     <nav class="main-menu">
                         <ul>
-                            <li class="current-list-item"><a href="{{url('/')}}">Home</a>
+                            <li class="current-list-item"><a href="{{ url('/') }}">Home</a>
                             </li>
-                            <li><a href="{{route('home.tentang-kami')}}">Tentang Kami</a></li>
+                            <li><a href="{{ route('home.tentang-kami') }}">Tentang Kami</a></li>
                             <li><a href="#">Layanan Kami</a>
                                 <ul class="sub-menu">
-                                    <li>   <a href="{{ route('home.furniture-kayu-jati') }}"> <img src="{{asset('home/assets/img/logo-menak-furniture.png')}}" style="height: 30px; display: inline;" alt=""> Furniture Kayu Jati</a></li>
+                                    <li> <a href="{{ route('home.furniture-kayu-jati') }}"> <img
+                                                src="{{ asset('home/assets/img/logo-menak-furniture.png') }}"
+                                                style="height: 30px; display: inline;" alt=""> Furniture Kayu
+                                            Jati</a></li>
                                     <li><a href="{{ route('home.lemari-kayu-jati') }}">Lemari Kayu Jati</a></li>
                                     <li><a href="{{ route('home.meja-kayu-jati') }}">Meja Kayu</a></li>
                                     <li><a href="{{ route('home.custom-design') }}">Custom Design</a></li>
@@ -38,7 +41,7 @@
                             </li>
                             <li><a href="news.html">Service Furniture</a>
                             </li>
-                            <li><a href="{{route('home.kontak-kami')}}">Kontak Kami</a></li>
+                            <li><a href="{{ route('home.kontak-kami') }}">Kontak Kami</a></li>
                             <li>
                                 <div class="header-icons">
                                     <!-- <a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a> -->
@@ -56,7 +59,9 @@
                                             </a>
                                             <ul class="dropdown-menu">
                                                 <li class="w-100"><a class="dropdown-item text-dark w-100"
-                                                        href="{{ route('home.keranjang') }}">Keranjang </a></li>
+                                                        href="{{ route('home.keranjang') }}">Keranjang <button class="btn btn-primary p-1 px-2 btn-xs"> {{$cart_count}}</button> </a></li>
+                                                <li class="w-100"><a class="dropdown-item text-dark w-100"
+                                                        href="{{ route('home.daftarTransaksi') }}">Transaksi <button class="btn btn-primary p-1 px-2 btn-xs"> {{$transaksi_count}}</button>  </a></li>
 
                                                 <li class="w-100">
                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -84,7 +89,7 @@
                                         <a class="btn btn-sm btn-success" href="{{ route('register') }}">
                                             Register</a>
                                     </div>
-                                 
+
                                 </li>
                             @endguest
                         </ul>

@@ -12,8 +12,8 @@ class CartController extends Controller
     {
         $user_id = Auth::user()->id;
 
-        $transaksi = Cart::with(['user', 'product'])->where('user_id', $user_id)->latest()->get();
+        $keranjang = Cart::with(['user', 'product'])->whereStatus('Dalam Keranjang')->where('user_id', $user_id)->latest()->get();
 
-        return view('home.keranjang', compact('transaksi'));
+        return view('home.keranjang', compact('keranjang'));
     }
 }

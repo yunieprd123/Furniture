@@ -131,15 +131,15 @@
                         </li>
                     </ul>
                 </li>
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ url('view_catagory') }}">
                         <i class="nav-icon fas  fa-bars"></i>
                         <p>
-                            Kategori
+                            Review Pesanan
                         </p>
                     </a>
 
-                </li> --}}
+                </li>
 
                 <li class="nav-item">
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

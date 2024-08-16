@@ -11,6 +11,8 @@ class DashboardAdminController extends Controller
     public function index()
     {
 
+        $data['transaksis'] = Transaksi::latest()->get();
+        
         $data['penjualanBar'] = Transaksi::all()
             ->groupBy(function ($item) {
                 return Carbon::parse($item->created_at)->format('D, d-m-y'); // Masih dalam format timestamp

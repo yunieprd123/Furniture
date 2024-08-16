@@ -1,14 +1,13 @@
 @extends('home.layout')
 @section('title', 'Daftar Transaksi')
 @section('content')
-    <div class="product-section">
-        <div class="breadcrumb-section breadcrumb-bg">
+    <div class="transaksiProduct-section">
+        <div class="breadcrumb-section hero-bg">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2 text-center">
                         <div class="breadcrumb-text">
-                            <p>Fresh and Organic</p>
-                            <h1>Cart</h1>
+                            <h1>Daftar Transaksi Anda</h1>
                         </div>
                     </div>
                 </div>
@@ -17,83 +16,107 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-xl-8">
-                    @foreach ($transaksi as $item)
-                        <div class="card border shadow-none my-2">
-                            <div class="card-body">
+                    @forelse ($transaksi as $item)
+                        <div class="card border shadow p-3 my-2 mb-5">
+                            <div class="card-header">
+                                <h5>{{ $item->order_id }}</h5>
+                            </div>
+                            @foreach ($item->transaksiProduct as $transaksiProduct)
+                                <div class="card-body">
 
-                                <div class="d-flex align-items-start border-bottom pb-3">
-                                    <div class="mr-5">
-                                        <img src="https://www.bootdey.com/image/100x100/008B8B/000000" alt=""
-                                            class="avatar-lg rounded">
-                                    </div>
-                                    <div class="flex-grow-1 align-self-center overflow-hidden">
-                                        <div>
-                                            <h5 class="text-truncate font-size-18"><a href="#"
-                                                    class="text-dark">{{$item->product}} </a></h5>
-                                            <p class="text-muted mb-0">
-                                                <i class="bx bxs-star text-warning"></i>
-                                                <i class="bx bxs-star text-warning"></i>
-                                                <i class="bx bxs-star text-warning"></i>
-                                                <i class="bx bxs-star text-warning"></i>
-                                                <i class="bx bxs-star-half text-warning"></i>
-                                            </p>
-                                            <p class="mb-0 mt-1">Color : <span class="fw-medium">Gray</span></p>
+                                    <div class="d-flex align-items-start border-bottom pb-3">
+                                        <div class="mr-5">
+                                            <img src="https://www.bootdey.com/image/100x100/008B8B/000000" alt=""
+                                                class="avatar-lg rounded">
                                         </div>
-                                    </div>
-                                    <div class="flex-shrink-0 ms-2">
-                                        <ul class="list-inline mb-0 font-size-16">
-                                            <li class="list-inline-item">
-                                                <a href="#" class="text-muted px-1">
-                                                    <i class="mdi mdi-trash-can-outline"></i>
-                                                </a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#" class="text-muted px-1">
-                                                    <i class="mdi mdi-heart-outline"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="mt-3">
-                                                <p class="text-muted mb-2">Price</p>
-                                                <h5 class="mb-0 mt-2"><span class="text-muted me-2"><del
-                                                            class="font-size-16 fw-normal">$500</del></span>$450</h5>
+                                        <div class="flex-grow-1 align-self-center overflow-hidden">
+                                            <div>
+                                                <h5 class="text-truncate font-size-18"><a href="#"
+                                                        class="text-dark">{{ $transaksiProduct->product->nama_produk }} </a>
+                                                </h5>
                                             </div>
                                         </div>
-                                        <div class="col-md-5">
-                                            <div class="mt-3">
-                                                <p class="text-muted mb-2">Quantity</p>
-                                                <div class="d-inline-flex">
-                                                    <select class="form-select form-select-sm w-xl">
-                                                        <option value="1">1</option>
-                                                        <option value="2" selected="">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                    </select>
+                                        <div class="flex-shrink-0 ms-2">
+                                            <ul class="list-inline mb-0 font-size-16">
+                                                <li class="list-inline-item">
+                                                    <a href="#" class="text-muted px-1">
+                                                        <i class="mdi mdi-trash-can-outline"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a href="#" class="text-muted px-1">
+                                                        <i class="mdi mdi-heart-outline"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="mt-3">
+                                                    <p class="text-muted mb-2">Price</p>
+                                                    <h5 class="mb-0 mt-2">
+                                                        <span class="me-2">Rp. <span class="harga-produk"
+                                                                data-price="{{ $transaksiProduct->product->harga_produk }}">{{ number_format($transaksiProduct->product->harga_produk) }}</span></span>
+                                                    </h5>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="mt-3">
-                                                <p class="text-muted mb-2">Total</p>
-                                                <h5>$900</h5>
+                                            <div class="col-md-5">
+                                                <div class="mt-3">
+                                                    <p class="text-muted mb-2">Quantity</p>
+                                                    <div class="d-inline-flex">
+                                                        <input class="form-control qty-input" type="number"
+                                                            name="qty_{{ $transaksiProduct->id }}"
+                                                            data-id="{{ $transaksiProduct->id }}"
+                                                            value="{{ $transaksiProduct->qty }}" min="1">
+                                                    </div>
+                                                </div>
                                             </div>
+                                            <div class="col-md-3">
+                                                <div class="mt-3">
+                                                    <p class="text-muted mb-2">Total</p>
+                                                    <h5>Rp. <span
+                                                            class="total-harga">{{ number_format($transaksiProduct->product->harga_produk * $transaksiProduct->qty) }}</span>
+                                                    </h5>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
+
                                 </div>
+                            @endforeach
+
+                            <hr  style="height: 5px; background-color: #000;">
+
+
+                            <div class="d-flex justify-content-end mr-5 px-3">
+                                <h5 class="">Rp. {{$item->transaksiProduct->sum('total_price')}}</h5>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <button class="btn btn-light text-dark shadwo border w-100">Detail</button>
+                                </div>
+                                <div class="col-6">
+                                    <a href="{{route('home.lengkapiPembayaran', $item->id)}}" class="btn btn-dark shadwo border w-100">Bayar</a>
+                                </div>
+                              
+                          
+                             
 
                             </div>
                         </div>
-                    @endforeach
+
+
+                    @empty
+                        <div class="">
+                            <h3>Anda belum mempunyai transaksi apapun</h3>
+
+                        </div>
+                    @endforelse
 
                     <!-- end card -->
 
@@ -101,15 +124,15 @@
 
                     <div class="row my-4">
                         <div class="col-sm-6">
-                            <a href="ecommerce-products.html" class="btn btn-link text-muted">
+                            <a href="ecommerce-transaksiProducts.html" class="btn btn-link text-muted">
                                 <i class="mdi mdi-arrow-left me-1"></i> Continue Shopping </a>
                         </div> <!-- end col -->
-                        <div class="col-sm-6">
+                        {{-- <div class="col-sm-6">
                             <div class="text-sm-end mt-2 mt-sm-0">
                                 <a href="ecommerce-checkout.html" class="btn btn-success">
                                     <i class="mdi mdi-cart-outline me-1"></i> Checkout </a>
                             </div>
-                        </div> <!-- end col -->
+                        </div> <!-- end col --> --}}
                     </div> <!-- end row-->
                 </div>
 
@@ -159,55 +182,32 @@
             </div>
             <!-- end row -->
 
-            {{-- <div class="table-responsive" style="margin-top:10vh;">
-                <table class="table table-striped table-hover align-middle">
-                    <thead >
-                        <caption>
-                            Data Transaksi
-                        </caption>
-                        <tr>
-                            <th></th>
-                            <th>Tanggal Transaksi</th>
-                            <th>Nama Produk</th>
-                            <th>Nama Pembeli</th>
-                            <th>Harga</th>
-                            <th>Qty</th>
-                            <th>Total</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider">
-                        @foreach ($transaksi as $item)
-                            <tr class="table-body-row">
-                                <td scope="row">{{ $loop->iteration }}</td>
-                                <td>{{ $item->created_at->translatedFormat('H:i, l d F Y') }}</td>
-                                <td>
-                                    @if ($item->payment_status == '1')
-                                        <button class="btn btn-warning">Menunggu Pembayaran</button>
-                                    @elseif($item->payment_status == '2')
-                                        <button class="btn btn-success">Sudah Dibayar</button>
-                                    @elseif($item->payment_status == '3')
-                                        <button class="btn btn-secondary">Kadaluarsa</button>
-                                    @elseif($item->payment_status == '4')
-                                        <button class="btn btn-danger">Batal</button>
-                                    @else
-                                        <button class="btn btn-info">Status Tidak Valid</button>
-                                    @endif
-                                </td>
 
-                                <td><a href="{{ route('home.bayar', $item->id) }}" class="boxed-btn">Bayar</a></td>
-                            </tr>
-                        @endforeach
-
-                    </tbody>
-                    <tfoot>
-                    </tfoot>
-                </table>
-
-            </div> --}}
 
 
         </div>
     </div>
 @endsection
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Select all quantity input fields
+        const qtyInputs = document.querySelectorAll('.qty-input');
+
+        qtyInputs.forEach(function(input) {
+            input.addEventListener('input', function() {
+                const id = this.getAttribute('data-id');
+                const quantity = parseInt(this.value);
+                const priceElement = this.closest('.row').querySelector('.harga-produk');
+                const price = parseInt(priceElement.getAttribute('data-price'));
+                const totalElement = this.closest('.row').querySelector('.total-harga');
+
+                // Calculate total
+                const total = price * quantity;
+
+                // Format and update total
+                totalElement.textContent = total.toLocaleString('id-ID');
+            });
+        });
+    });
+</script>

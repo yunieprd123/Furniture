@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('qty');
-            $table->enum('status',['On Cart','Payed']);
+            $table->enum('status',['Dalam Keranjang','Dalam Transaksi','Dibayar']);
             $table->timestamps();
         });
     }

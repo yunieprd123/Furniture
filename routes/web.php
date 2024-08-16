@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\PaymentCallBackController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,7 +77,7 @@ Route::middleware(['auth'])->group(function () {
 
 
         // Review/Komentar
-        // Route::get('product', [ProductController::class, 'index'])->name('product.index');
+        // Route::get('product', [Review::class, 'index'])->name('product.index');
         // Route::get('product/create', [ProductController::class, 'create'])->name('product.create');
         // Route::post('product/store', [ProductController::class, 'store'])->name('product.store');
         // Route::get('product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
@@ -89,6 +90,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/add-to-cart/{id}', [HomeController::class, 'addTocart'])->name('home.addToCart');
     Route::get('/keranjang', [CartController::class, 'index'])->name('home.keranjang');
+    Route::get('/daftar-transaksi', [HomeController::class, 'daftarTransaksi'])->name('home.daftarTransaksi');
+
 });
 
 Route::post('payments/midtrans-notification', [PaymentCallBackController::class, 'receive']);

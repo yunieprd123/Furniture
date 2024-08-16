@@ -24,7 +24,7 @@
                         <td>
                             <img src="{{ asset('produk/'.$data->gambar_produk) }}" width="200" alt="">
                         </td>
-                        <td>{{ number_format($data->harga_produk) }}</td>
+                        <td>Rp. {{ number_format($data->harga_produk) }}</td>
                         <td>{{ $data->stok }}</td>
                         <td>
                             <a href="{{route('product.edit',$data->id)}}" class="btn btn-info">Edit</a>
