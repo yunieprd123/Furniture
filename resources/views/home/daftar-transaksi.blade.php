@@ -1,5 +1,54 @@
 @extends('home.layout')
 @section('title', 'Daftar Transaksi')
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .rate {
+        float: left;
+        height: 46px;
+        padding: 0 10px;
+    }
+
+    .rate:not(:checked)>input {
+        position: absolute;
+        top: -9999px;
+    }
+
+    .rate:not(:checked)>label {
+        float: right;
+        width: 1em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 30px;
+        color: #ccc;
+    }
+
+    .rate:not(:checked)>label:before {
+        content: '★ ';
+    }
+
+    .rate>input:checked~label {
+        color: #ffc700;
+    }
+
+    .rate:not(:checked)>label:hover,
+    .rate:not(:checked)>label:hover~label {
+        color: #deb217;
+    }
+
+    .rate>input:checked+label:hover,
+    .rate>input:checked+label:hover~label,
+    .rate>input:checked~label:hover,
+    .rate>input:checked~label:hover~label,
+    .rate>label:hover~input:checked~label {
+        color: #c59b08;
+    }
+</style>
+
 @section('content')
     <div class="transaksiProduct-section">
         <div class="breadcrumb-section hero-bg">
@@ -22,7 +71,7 @@
                                 <h5>{{ $item->order_id }}</h5>
                             </div>
                             @foreach ($item->transaksiProduct as $transaksiProduct)
-                                <div class="card-body">
+                                <div class="card-body mb-0 pb-1">
 
                                     <div class="d-flex align-items-start border-bottom pb-3">
                                         <div class="mr-5">
@@ -51,9 +100,8 @@
                                             </ul>
                                         </div>
                                     </div>
-
                                     <div>
-                                        <div class="row">
+                                        <div class="row mb-0">
                                             <div class="col-md-4">
                                                 <div class="mt-3">
                                                     <p class="text-muted mb-2">Price</p>
@@ -89,23 +137,45 @@
                                 </div>
                             @endforeach
 
-                            <hr  style="height: 5px; background-color: #000;">
+                            <hr style="height: 5px; background-color: #000;">
 
 
                             <div class="d-flex justify-content-end mr-5 px-3">
-                                <h5 class="">Rp. {{$item->transaksiProduct->sum('total_price')}}</h5>
+                                <button class="btn btn-success font-weight-bold">Rp.
+                                    {{ $item->transaksiProduct->sum('total_price') }}</button>
                             </div>
 
                             <div class="row mt-3">
                                 <div class="col-6">
-                                    <button class="btn btn-light text-dark shadwo border w-100">Detail</button>
+                                    @if ($item->payment_status == '1')
+                                        <button type="button" class="btn btn-sm btn-warning border w-100">
+                                            Menunggu Pembayaran
+                                        </button>
+                                    @elseif($item->payment_status == '2')
+                                        <button type="button" class="btn btn-sm btn-success border w-100">
+                                            Sudah Dibayar
+                                        </button>
+                                    @elseif($item->payment_status == '3')
+                                        <button type="button" class="btn btn-sm btn-secondary border w-100">
+                                            Kadaluarsa
+                                        </button>
+                                    @elseif($item->payment_status == '4')
+                                        <button type="button" class="btn btn-sm btn-danger border w-100">
+                                            Dibatalkan
+                                        </button>
+                                    @else
+                                        <button type="button" class="btn btn-sm btn-info border w-100">
+                                            Status Tidak Valid
+                                        </button>
+                                    @endif
                                 </div>
                                 <div class="col-6">
-                                    <a href="{{route('home.lengkapiPembayaran', $item->id)}}" class="btn btn-dark shadwo border w-100">Bayar</a>
+                                    <a href="{{ route('home.lengkapiPembayaran', $item->id) }}"
+                                        class="btn btn-dark shadwo border w-100">Bayar</a>
                                 </div>
-                              
-                          
-                             
+
+
+
 
                             </div>
                         </div>
@@ -186,6 +256,166 @@
 
 
         </div>
+
+
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Berikan Ulasan</h2>
+                </div>
+
+                <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-sm-12">
+                    @forelse ($transaksiSelesai as $itemSelesai)
+                        <div class="card border shadow p-3 my-2 mb-5">
+                            <div class="card-header">
+                                <h5>{{ $itemSelesai->order_id }}</h5>
+                            </div>
+                            @foreach ($itemSelesai->transaksiProduct as $transaksiProductSelesai)
+                                <div class="card-body mb-0 pb-1">
+
+                                    <div class="d-flex align-items-start border-bottom pb-3">
+                                        <div class="mr-5">
+                                            <img src="https://www.bootdey.com/image/100x100/008B8B/000000" alt=""
+                                                class="avatar-lg rounded">
+                                        </div>
+                                        <div class="flex-grow-1 align-self-center overflow-hidden">
+                                            <div>
+                                                <h5 class="text-truncate font-size-18"><a href="#"
+                                                        class="text-dark">{{ $transaksiProductSelesai->product->nama_produk }}
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="flex-shrink-0 ms-2">
+                                            <ul class="list-inline mb-0 font-size-16">
+                                                <li class="list-inline-item">
+                                                    <a href="#" class="text-muted px-1">
+                                                        <i class="mdi mdi-trash-can-outline"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a href="#" class="text-muted px-1">
+                                                        <i class="mdi mdi-heart-outline"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="row mb-0">
+                                            <div class="col-md-4">
+                                                <div class="mt-3">
+                                                    <p class="text-muted mb-2">Price</p>
+                                                    <h5 class="mb-0 mt-2">
+                                                        <span class="me-2">Rp. <span class="harga-produk"
+                                                                data-price="{{ $transaksiProductSelesai->product->harga_produk }}">{{ number_format($transaksiProductSelesai->product->harga_produk) }}</span></span>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="mt-3">
+                                                    <p class="text-muted mb-2">Quantity</p>
+                                                    <div class="d-inline-flex">
+                                                        <input class="form-control qty-input" type="number"
+                                                            name="qty_{{ $transaksiProductSelesai->id }}"
+                                                            data-id="{{ $transaksiProductSelesai->id }}"
+                                                            value="{{ $transaksiProductSelesai->qty }}" min="1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mt-3">
+                                                    <p class="text-muted mb-2">Total</p>
+                                                    <h5>Rp. <span
+                                                            class="total-harga">{{ number_format($transaksiProductSelesai->product->harga_produk * $transaksiProductSelesai->qty) }}</span>
+                                                    </h5>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            @endforeach
+
+                            <hr style="height: 5px; background-color: #000;">
+
+
+                            <div class="d-flex justify-content-end mr-5 px-3">
+                                <button class="btn btn-success font-weight-bold">Rp.
+                                    {{ $itemSelesai->transaksiProduct->sum('total_price') }}</button>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-12">
+
+                                    @if ($itemSelesai->whereHas('reviews')->get())
+                                      <div class="row">
+                                        <div class="col-6">
+                                            <label for="">Ulasan Anda</label>
+                                        </div>
+                                      </div>
+                                    @else
+                                        <button class="btn btn-dark shadow border w-100" data-bs-toggle="modal"
+                                            data-id="{{ $itemSelesai->id }}" data-bs-target="#ulasanModal">
+                                            Berikan Ulasan
+                                        </button>
+                                    @endif
+
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+
+
+                    @empty
+                        <div class="mt-5">
+                            <h6 class="mx-0 px-0">Anda belum mempunyai transaksi yang selesai</h6>
+
+                        </div>
+                    @endforelse
+
+                    <!-- end card -->
+
+
+
+                    <div class="modal fade" id="ulasanModal" tabindex="-1" aria-labelledby="ulasanModal"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <form action="{{ route('home.tambahkanUlasan') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="transaksi_id" value="" id="transaksiUlasan_id">
+
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <div class="">
+                                            <h5 class="w-100">Beri ulasan untuk : </h5>
+
+                                            <h5 class="" id="exampleModalLabel"></h5>
+                                        </div>
+
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                            aria-label="Close">X</button>
+                                    </div>
+                                    <div class="modal-body">
+
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Tutup</button>
+                                        <button type="submit" class="btn btn-info">Tambahkan Ulasan</button>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 
@@ -209,5 +439,72 @@
                 totalElement.textContent = total.toLocaleString('id-ID');
             });
         });
+
+
+        document.getElementById('ulasanModal').addEventListener('show.bs.modal', function(event) {
+            var button = event.relatedTarget;
+            var transaksiId = button.getAttribute('data-id');
+
+            // AJAX request untuk mendapatkan data transaksi selesai
+            fetch("{{ route('home.getDataTransaksi', '') }}/" + transaksiId, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Isi modal dengan data yang didapat
+                    document.getElementById('transaksiUlasan_id').value = data.id;
+                    document.getElementById('exampleModalLabel').textContent = "Order ID: " + data
+                        .order_id;
+
+                    // Looping untuk produk yang ada di dalam transaksi
+                    let modalBody = '';
+                    data.transaksi_product.forEach((product) => {
+                        modalBody += `
+                        <br>
+                    <div class="form-group mb-3">
+                        <input type="hidden" name="product_id[]" value="${product.product.id}">
+
+                        <div class ="d-block">
+                                                    <h6 class="fw-bold">${product.product.nama_produk}</h6>
+                            </div>
+                        <label for="ulasan-${product.id}">Ulasan anda</label>
+                        <textarea name="ulasan[]" class="form-control mb-2" cols="30" rows="3"></textarea>
+
+                        <div class="d-flex justify-content-start">
+                            <label for="rating-${product.id}">Rating</label>
+                        </div>
+                        <div class>
+                         <div class="rate">
+                            <input type="radio" id="star5-${product.id}" name="rating[${product.id}]" value="5" />
+                            <label for="star5-${product.id}" title="5 stars">★</label>
+                            <input type="radio" id="star4-${product.id}" name="rating[${product.id}]" value="4" />
+                            <label for="star4-${product.id}" title="4 stars">★</label>
+                            <input type="radio" id="star3-${product.id}" name="rating[${product.id}]" value="3" />
+                            <label for="star3-${product.id}" title="3 stars">★</label>
+                            <input type="radio" id="star2-${product.id}" name="rating[${product.id}]" value="2" />
+                            <label for="star2-${product.id}" title="2 stars">★</label>
+                            <input type="radio" id="star1-${product.id}" name="rating[${product.id}]" value="1" />
+                            <label for="star1-${product.id}" title="1 star">★</label>
+                        </div>
+
+                           
+                        </div>
+                    </div>
+                    <br>
+                `;
+                    });
+
+                    // Tampilkan konten dinamis ke dalam modal body
+                    ulasanModal.querySelector('.modal-body').innerHTML = modalBody;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+
+
     });
 </script>

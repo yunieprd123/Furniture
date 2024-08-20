@@ -6,7 +6,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Jetstream\HasProfilePhoto;
 
 class User extends Authenticatable
 {
@@ -57,11 +56,6 @@ class User extends Authenticatable
     ];
 
 
-    /**
-     * Get the transaksi associated with the User
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
     public function transaksi()
     {
         return $this->hasOne(Transaksi::class);

@@ -22,11 +22,8 @@ class Transaksi extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id');
     }
-
-
-
     public function product()
     {
         return $this->belongsToMany(Product::class,'transaksi_products','transaksi_id','product_id');
@@ -35,6 +32,11 @@ class Transaksi extends Model
     public function transaksiProduct()
     {
         return $this->hasMany(TransaksiProduct::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 
     protected static function boot()

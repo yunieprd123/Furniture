@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardAdminController;
+use App\Http\Controllers\HomeResponseController;
 use App\Http\Controllers\PaymentCallBackController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransaksiController;
@@ -49,7 +50,12 @@ Route::view('/custom-design', 'home.custom-design')->name('home.custom-design');
 Route::view('/mini-furniture', 'home.mini-furniture')->name('home.mini-furniture');
 Route::view('/kontak-kami', 'home.kontak-kami')->name('home.kontak-kami');
 Route::get('detail-product/{id}', [HomeController::class, 'detailProduct'])->name('home.detail-product');
+Route::get('berikan-ulasan/{id}', [HomeController::class, 'berikanUlasan'])->name('home.berikanUlasan');
+Route::post('kirim-ulasan', [HomeController::class, 'tambahkanUlasan'])->name('home.tambahkanUlasan');
 
+
+// 
+Route::post('get-data-transaksi-selesai/{id}',[HomeResponseController::class,'getDataTransaksiSelesai'])->name('home.getDataTransaksi');
 
 // Route::middleware(['auth'])->group(function () {
 
