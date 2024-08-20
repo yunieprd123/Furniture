@@ -1,16 +1,81 @@
 @extends('admin.layout')
 @section('content')
     <div class="row">
-        <div class="col-6 card p-3">
-            <h3>Data Penjualan</h3>
-            <canvas id="chartBarPenjualan"></canvas>
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <h3>150</h3>
+
+                    <p>Jumlah Produk</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div class="small-box bg-primary">
+                <div class="inner">
+                    <h3>150</h3>
+
+                    <p>Jumlah User</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>150</h3>
+
+                    <p>Jumlah Transaksi</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div class="small-box bg-secondary">
+                <div class="inner">
+                    <h3>150</h3>
+
+                    <p>New Orders</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
         </div>
 
-        <div class="col-6 card p-3">
-            <h3>Data Penjualan</h3>
+        <div class="col-6 ">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Data Penjualan</h3>
+                    <canvas id="chartBarPenjualan"></canvas>
+                </div>
+            </div>
 
-            <div>
-                <canvas id="chartPiePenjualan" style="height:10; width:10vw"></canvas>
+        </div>
+
+        <div class="col-6 ">
+
+
+            <div class="card">
+                <div class="card-body">
+                    <h3>Data Penjualan</h3>
+                    <div class="d-flex justify-content-center">
+                        <canvas id="chartPiePenjualan" style="height: 20vw; width:auto;"></canvas>
+
+                    </div>
+                </div>
+
 
             </div>
 
@@ -65,7 +130,8 @@
 
                                         </td>
                                         <td>
-                                            <a href="{{ route('home.bayar', $item->id) }}" class="btn btn-sm btn-primary">Bayar</a>
+                                            <a href="{{ route('home.bayar', $item->id) }}"
+                                                class="btn btn-sm btn-primary">Bayar</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -85,7 +151,6 @@
 
 
     <script>
-
         var ctx = document.getElementById('chartBarPenjualan').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',
@@ -137,7 +202,7 @@
                 }]
             },
             options: {
-                responsive: true,
+                responsive: false,
                 plugins: {
                     legend: {
                         position: 'top',
@@ -154,6 +219,5 @@
         });
 
         $('#dataTable').DataTable();
-
     </script>
 @endsection

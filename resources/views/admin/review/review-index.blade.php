@@ -1,4 +1,5 @@
 @extends('admin.layout')
+@section('title','Review')
 @section('content')
     <div class="table-responsive mt-5 ">
         <table class="table table-striped table-bordered shadow">
@@ -15,19 +16,12 @@
             </thead>
             <tbody>
 
-                @foreach ($reviews as $data)
+                @foreach ($reviews as $review)
                     <tr class="">
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $data->komentar }}</td>
-                        <td>{{ $data->user->name }}</td>
-                        <td>{{ $data->user->produk }}</td>
-                        <td>{{ number_format($data->harga_produk) }}</td>
-                        <td>{{ $data->stok }}</td>
-                        <td>
-                            <a href="{{ route('product.edit', $data->id) }}" class="btn btn-info">Edit</a>
-                            <a href="{{ route('product.destroy', $data->id) }}" class="btn btn-danger">Hapus</a>
-
-                        </td>
+                        <td>{{ $review->ulasan }}</td>
+                     
+                    
 
                     </tr>
                 @endforeach

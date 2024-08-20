@@ -82,6 +82,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('transaksi/edit/{id}', [TransaksiController::class, 'edit'])->name('transaksi.edit');
 
 
+        Route::get('review', [ReviewController::class, 'index'])->name('review.index');
+        Route::get('review/show/{id}', [ReviewController::class, 'show'])->name('review.edit');
         // Review/Komentar
         // Route::get('product', [Review::class, 'index'])->name('product.index');
         // Route::get('product/create', [ProductController::class, 'create'])->name('product.create');
