@@ -15,7 +15,7 @@ class Review extends Model
         'product_id',
         'transaksi_id',
         'komentar',
-        'rating',
+        'ulasan',
     ];
 
 

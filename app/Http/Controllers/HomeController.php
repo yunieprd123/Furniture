@@ -22,10 +22,22 @@ class HomeController extends Controller
 
     public function detailProduct($id)
     {
-        $product = Product::find($id);
+        $product = Product::with('reviews.user')->find($id);
+        $produkRating = number_format($product->reviews()->avg('rating'), 1);
+        $produkJumlahRating = $product->reviews->groupBy('rating')
+        ->map(function ($reviews) {
+            return $reviews->pluck('rating');
+        })->map(function ($count) {
+            return $count->count();
+        })->sortKeysDesc();
 
-
-        return view('home.detail-product', compact('product'));
+        // $review =  Review::orderBy('rating')->get()->groupBy('rating')
+        // ->map(function ($reviews) {
+        //     return $reviews->pluck('rating');
+        // });
+      
+        // dd($produkRating);
+        return view('home.detail-product', compact('product','produkRating','produkJumlahRating'));
     }
 
 
@@ -70,10 +82,10 @@ class HomeController extends Controller
 
         $transaksi = Transaksi::with(['user', 'transaksiProduct.product'])->whereIn('payment_status', [1])->where('user_id', $user_id)->latest()->get();
         $transaksiSelesai = Transaksi::with(['user', 'transaksiProduct.product'])
-        ->whereIn('payment_status', [2])
-        ->where('user_id', $user_id)
-        ->whereDoesntHave('reviews')
-        ->latest()->get();
+            ->whereIn('payment_status', [2])
+            ->where('user_id', $user_id)
+            ->whereDoesntHave('reviews')
+            ->latest()->get();
 
 
         // dd($transaksi);
@@ -96,13 +108,13 @@ class HomeController extends Controller
         // dd($request->rating);
 
         $requestRating = array_values($request->rating);
-       
+
         // dd($request->all());
 
 
         // dd(count($requestRating));
-        for($i=0; $i<count($requestRating); $i++){
-            
+        for ($i = 0; $i < count($requestRating); $i++) {
+
             $review = new Review();
             $review->ulasan = $request->ulasan[$i];
             $review->rating = $requestRating[$i];
@@ -111,7 +123,7 @@ class HomeController extends Controller
             $review->user_id = Auth::user()->id;
             $review->save();
         }
-        
+
 
         return to_route('home.daftarTransaksi');
     }
