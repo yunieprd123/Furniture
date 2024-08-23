@@ -67,7 +67,7 @@
     </div>
 
 
-    <div class="product-section">
+    <div class="product-section mt-150 mb-150">
 
         @yield('content')
     </div>

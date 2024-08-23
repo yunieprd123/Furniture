@@ -5,8 +5,8 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-5">
-
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-5 px-5">
+                    <img src="{{asset('home/assets/img/Custome-Design.jpg')}}" alt="">
                 </div>
                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-5">
                     <h2 class="font-weight-bold">Menjadi Unik dengan Sentuhan Pribadi</h2>
