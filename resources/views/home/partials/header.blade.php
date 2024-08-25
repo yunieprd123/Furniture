@@ -39,7 +39,6 @@
                                     <li><a href="{{ route('home.mini-furniture') }}">Mini Furniture</a></li>
                                 </ul>
                             </li>
-                            <li><a href="news.html">Service Furniture</a>
                             </li>
                             <li><a href="{{ route('home.kontak-kami') }}">Kontak Kami</a></li>
                             <li>

@@ -11,7 +11,7 @@ class ReviewController extends Controller
     
     public function index()
     {
-        $data['reviews'] = Transaksi::with('-')->latest()->get();
+        $data['reviews'] = Review::with(['product','user'])->latest()->get();
         
         return view('admin.review.review-index',$data);
     }
