@@ -21,7 +21,7 @@
                     <div class="text">"Ruang kerja yang inspiratif dengan penawaran spesial bulan ini! Pilih furnitur kantor kayu berkualitas tinggi untuk tampilan elegan dan fungsionalitas optimal. Dapatkan diskon eksklusif dan perbarui ruang kerja Anda dengan gaya dan keanggunan."</div>
                     <!--Countdown Timer-->
                     <!-- <div class="time-counter"><div class="time-countdown clearfix" data-countdown="2020/2/01"><div class="counter-column"><div class="inner"><span class="count">15</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">07</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div> -->
-                	<a href="cart.html" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                	<a href="{{route('home.keranjang')}}" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
             </div>
         </div>
