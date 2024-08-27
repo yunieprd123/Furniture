@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-md-5">
                         <div class="single-product-img">
-                            <img src="{{ asset('produk/' . $product->image) }}" alt="{{ $product->nama_produk }}">
+                            <img src="{{ asset('produk/' . $product->gambar_produk) }}" alt="{{ $product->nama_produk }}">
                         </div>
                     </div>
                     <div class="col-md-7">
