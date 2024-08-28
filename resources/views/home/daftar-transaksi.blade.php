@@ -206,7 +206,7 @@
                     </div> <!-- end row-->
                 </div>
 
-                <div class="col-xl-4">
+                {{-- <div class="col-xl-4">
                     <div class="mt-5 mt-lg-0">
                         <div class="card border shadow-none">
                             <div class="card-header bg-transparent border-bottom py-3 px-4">
@@ -248,7 +248,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <!-- end row -->
 
