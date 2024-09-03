@@ -14,7 +14,7 @@
     <title>Menak Furniture</title>
 
     <!-- favicon -->
-    <link rel="shortcut icon" type="image/png" href="home/assets/img/logo-menak-furniture.png">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('home/assets/img/logo-menak-furniture.png') }} ">
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
@@ -123,16 +123,16 @@
     <!-- end product section -->
 
     @include('home.partials.cart')
-   
+
     @include('home.partials.advertisement')
 
     @include('home.partials.news')
-    
+
     {{-- @include('home.partials.footer') --}}
     <!-- end footer -->
 
     <!-- copyright -->
-    <div class="copyright" >
+    <div class="copyright">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
@@ -144,7 +144,8 @@
                         <ul>
                             <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                             <!-- <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li> -->
-                            <li><a href="https://www.instagram.com/menak.furniture?igsh=MXA0ZXdkcXFodTU5cw==" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://www.instagram.com/menak.furniture?igsh=MXA0ZXdkcXFodTU5cw=="
+                                    target="_blank"><i class="fab fa-instagram"></i></a></li>
                             <!-- <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
        <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li> -->
                         </ul>
@@ -154,7 +155,9 @@
         </div>
     </div>
     <!-- end copyright -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
 
     <!-- jquery -->
     <script src="{{ asset('home/assets/js/jquery-1.11.3.min.js') }} "></script>

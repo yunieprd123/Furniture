@@ -1,7 +1,7 @@
 @extends('home.layout')
 @section('title', 'Furniture Kayu Jati')
 @section('content')
-    <div class="product-section">
+    <div class="product-section mt-150 mb-150">
         <div class="container">
 
             <div class="row">

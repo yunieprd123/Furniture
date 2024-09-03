@@ -11,7 +11,7 @@
                                 </span>
                             </div>
                         </div>
-                    	<img src="{{asset('home/assets/img/Mini-Furniture.jpg')}}" alt="">
+                    	<img src="{{asset('home/assets/img/kursi.jpeg')}}" alt="">
                     </div>
                 </div>
                 <!--Content Column-->
