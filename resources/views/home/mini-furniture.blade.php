@@ -2,7 +2,7 @@
 @section('title', 'Furniture Kayu Jati')
 @section('content')
     <div class="product-section mt-150 mb-150">
-        <div class="container">
+          <div class="container">
 
             <div class="row">
                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-5 px-5">

@@ -39,6 +39,14 @@ class UserSeeder extends Seeder
                 'updated_at' => now(),
                 'role' => 'user'
             ],
+            [
+                'name' => 'Komang Menak',
+                'email' => 'menakfurniture@gmail.com',
+                'password' => Hash::make('menakfurniture2000'),
+                'created_at' => now(),
+                'updated_at' => now(),
+                'role' => 'admin'
+            ],
         ]);
     }
 }

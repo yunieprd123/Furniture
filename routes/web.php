@@ -64,7 +64,7 @@ Route::post('get-data-transaksi-selesai/{id}',[HomeResponseController::class,'ge
 Route::middleware(['auth'])->group(function () {
 
     // Dashboard Admin
-    Route::prefix('dashboard')->group(function () {
+    Route::middleware('is_admin')->prefix('dashboard')->group(function () {
         Route::get('/',[DashboardAdminController::class,'index'] )->name('dashboard');
         // Produk
         Route::get('product', [ProductController::class, 'index'])->name('product.index');
