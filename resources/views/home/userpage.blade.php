@@ -159,6 +159,15 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWPZC0M8N5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FWPZC0M8N5');
+    </script>
+
     <!-- jquery -->
     <script src="{{ asset('home/assets/js/jquery-1.11.3.min.js') }} "></script>
     <!-- bootstrap -->
