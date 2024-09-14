@@ -1,5 +1,9 @@
 @extends('home.layout')
-@section('title', 'Furniture Kayu Jati')
+@section('title', 'Lemari Kayu Jati')
+@section('meta-tags')
+    <meta name="description" content="Lemari Kayu Jati Elegan adalah pilihan sempurna untuk Anda yang menginginkan kombinasi keindahan dan fungsionalitas dalam satu produk. Dibuat dari kayu jati berkualitas tinggi, lemari ini tidak hanya menambah estetika ruangan Anda, tetapi juga menawarkan kekuatan dan ketahanan yang luar biasa.">
+    <meta name="keywords" content="lemari jati terbaik, furniture”, furniture lemari">
+@endsection
 @section('content')
     <div class="product-section mt-150 mb-150">
         <div class="container">
@@ -15,7 +19,9 @@
                     <p style="text-align: justify;">
                         Lemari Kayu Jati Elegan adalah pilihan sempurna untuk Anda yang menginginkan kombinasi keindahan dan
                         fungsionalitas dalam satu produk. Dibuat dari kayu jati berkualitas tinggi, lemari ini tidak hanya
-                        menambah estetika ruangan Anda, tetapi juga menawarkan kekuatan dan ketahanan yang luar biasa.
+                        menambah estetika ruangan Anda, tetapi juga menawarkan kekuatan dan ketahanan yang luar biasa. Jika
+                        Anda ingin lemari yang disesuaikan dengan kebutuhan spesifik Anda, kami menyediakan layanan <a href="{{ route('home.custom-design') }}">custom design</a>. 
+                        Selain itu, bagi Anda yang membutuhkan solusi furnitur untuk ruang kecil, koleksi <a href="{{ route('home.mini-furniture') }}">mini furniture</a> kami adalah pilihan yang ideal.
                     </p>
                 </div>
                 <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-5">
