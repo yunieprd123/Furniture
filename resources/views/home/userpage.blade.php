@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-    <meta name="description"
-        content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
-
     <!-- title -->
-    <title>Menak Furniture</title>
+    <title>Menak Furniture – Produk Furniture Terbaik</title>
+    <meta name="description" content="Dapatkan koleksi furniture elegan dan fungsional untuk setiap ruangan di rumah Anda di Menak Furniture. Tambahkan sentuhan indah ke rumah Anda dengan furniture dari Menak Furniture hari ini!">
+    <meta name="keywords" content="penjual kerajinan furnitur, produk furnitur, kerajinan furnitur, furniture elegan">
+
 
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="{{ asset('home/assets/img/logo-menak-furniture.png') }} ">

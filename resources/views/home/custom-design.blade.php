@@ -1,5 +1,9 @@
 @extends('home.layout')
-@section('title', 'Furniture Kayu Jati')
+@section('title', 'Menjadi Unik dengan Sentuhan Pribadi')
+@section('meta-tags')
+    <meta name="description" content="Custom design adalah solusi terbaik untuk menciptakan produk yang benar-benar mencerminkan kepribadian dan gaya hidup Anda. Baik itu pakaian, aksesori, furnitur, atau barang-barang digital, custom design memungkinkan Anda untuk memiliki sesuatu yang benar-benar eksklusif dan dibuat khusus sesuai keinginan Anda.">
+    <meta name="keywords" content="custom design furniture">
+@endsection
 @section('content')
 <div class="product-section mt-150 mb-150">
     <div class="container">

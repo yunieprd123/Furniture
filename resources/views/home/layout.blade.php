@@ -7,12 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-    <meta name="description"
-        content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
-
     <!-- title -->
     <title> 
-        @yield('title'){{$judul ?? ''}} | Menak Furniture</title>
+        @yield('title'){{$judul ?? ''}} | Menak Furniture
+    </title>
+    @yield('meta-tags')
 
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="home/assets/img/logo-menak-furniture.png">

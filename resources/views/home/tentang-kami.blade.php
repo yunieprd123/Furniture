@@ -1,5 +1,9 @@
 @extends('home.layout')
-@section('title','Tentang Kami')
+@section('title','Tentang Menak Furniture')
+@section('meta-tags')
+    <meta name="description" content="Selamat datang di Menak Furniture! Kami adalah penyedia furnitur berkualitas tinggi yang mengutamakan kenyamanan dan gaya. Misi kami adalah menghadirkan produk yang menarik, tahan lama, dan fungsional untuk setiap rumah.">
+    <meta name="keywords" content="tentang menak furniture">
+@endsection
 @section('content')
     <div class="product-section">
         <div class="container" style="padding: 30vh 0;">

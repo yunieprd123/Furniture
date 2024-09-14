@@ -1,5 +1,9 @@
 @extends('home.layout')
-@section('title', 'Furniture Kayu Jati')
+@section('title', 'Furniture Kayu Jati Terbaik')
+@section('meta-tags')
+    <meta name="description" content="Lemari furnitur kayu jati ini menawarkan sentuhan elegan dan keanggunan klasik pada setiap ruangan. Dibuat dari kayu jati berkualitas tinggi, lemari ini tidak hanya kokoh dan tahan lama, tetapi juga memiliki estetika yang mewah dan natural.">
+    <meta name="keywords" content="kayu jati terbaik, furniture kayu, furniture kayu, kayu jati">
+@endsection
 @section('content')
     <div class="product-section mt-150 mb-150">
         <div class="container">

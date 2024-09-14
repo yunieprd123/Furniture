@@ -1,5 +1,9 @@
 @extends('home.layout')
-@section('title', 'Furniture Kayu Jati')
+@section('title', 'Meja Kayu Jati')
+@section('meta-tags')
+    <meta name="description" content="Meja kayu minimalis ini terbuat dari kayu jati solid yang terkenal dengan kekuatan dan keawetannya. Desainnya yang sederhana namun elegan membuat meja ini cocok ditempatkan di berbagai ruang, seperti ruang tamu, ruang makan, atau bahkan ruang kerja.">
+    <meta name="keywords" content="meja makan kayu, meja furniture">
+@endsection
 @section('content')
     <div class="product-section mt-150 mb-150">
         <div class="container">

@@ -1,5 +1,9 @@
 @extends('home.layout')
-@section('title', 'Furniture Kayu Jati')
+@section('title', 'Mini Furniture')
+@section('meta-tags')
+    <meta name="description" content="Bawa pesona kecil ke ruangan Anda dengan set mini furniture kami. Set ini terdiri dari kursi, meja, dan lemari kecil yang dibuat dengan detail halus dan presisi. Didesain untuk memberikan sentuhan dekoratif yang manis dan fungsional di ruang terbatas.">
+    <meta name="keywords" content="furniture mini, minimalis furniture">
+@endsection
 @section('content')
     <div class="product-section mt-150 mb-150">
           <div class="container">

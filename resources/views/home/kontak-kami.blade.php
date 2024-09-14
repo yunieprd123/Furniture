@@ -1,5 +1,9 @@
 @extends('home.layout')
 @section('title', 'Kontak Kami')
+@section('meta-tags')
+    <meta name="description" content="Menak Furniture selalu siap membantu Anda. Silakan hubungi tim layanan pelanggan kami untuk informasi lebih lanjut tentang produk, pesanan, atau pertanyaan lainnya.">
+    <meta name="keywords" content="kontak menak furniture">
+@endsection
 @section('content')
     <div class="product-section" style="margin: 30vh; ">
         <div class="container">
