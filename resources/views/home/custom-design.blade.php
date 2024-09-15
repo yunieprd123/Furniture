@@ -1,5 +1,9 @@
 @extends('home.layout')
-@section('title', 'Furniture Kayu Jati')
+@section('title', 'Menjadi Unik dengan Sentuhan Pribadi')
+@section('meta-tags')
+    <meta name="description" content="Custom design adalah solusi terbaik untuk menciptakan produk yang benar-benar mencerminkan kepribadian dan gaya hidup Anda. Baik itu pakaian, aksesori, furnitur, atau barang-barang digital, custom design memungkinkan Anda untuk memiliki sesuatu yang benar-benar eksklusif dan dibuat khusus sesuai keinginan Anda.">
+    <meta name="keywords" content="custom design furniture">
+@endsection
 @section('content')
 <div class="product-section mt-150 mb-150">
     <div class="container">
@@ -13,9 +17,11 @@
                     <p style="text-align: justify;">
                         Dalam dunia yang serba cepat ini, setiap individu ingin mengekspresikan diri mereka dengan cara yang
                         unik dan autentik. Custom design adalah solusi terbaik untuk menciptakan produk yang benar-benar
-                        mencerminkan kepribadian dan gaya hidup Anda. Baik itu pakaian, aksesori, furnitur, atau
+                        mencerminkan kepribadian dan gaya hidup Anda. Baik itu pakaian, aksesori, <a href="{{ route('home.furniture-kayu-jati') }}">furniture kayu</a>, atau
                         barang-barang digital, custom design memungkinkan Anda untuk memiliki sesuatu yang benar-benar
-                        eksklusif dan dibuat khusus sesuai keinginan Anda.
+                        eksklusif dan dibuat khusus sesuai keinginan Anda. Dari <a href="{{ route('home.meja-kayu-jati') }}">meja kayu</a> hingga <a href="{{ route('home.mini-furniture') }}">mini furniture</a>, setiap
+                        produk dapat dirancang agar sesuai dengan kebutuhan spesifik Anda, memberikan sentuhan personal pada
+                        setiap detail.
                     </p>
                 </div>
                 <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-5">

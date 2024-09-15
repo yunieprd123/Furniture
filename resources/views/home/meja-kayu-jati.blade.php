@@ -1,5 +1,9 @@
 @extends('home.layout')
-@section('title', 'Furniture Kayu Jati')
+@section('title', 'Meja Kayu Jati')
+@section('meta-tags')
+    <meta name="description" content="Meja kayu minimalis ini terbuat dari kayu jati solid yang terkenal dengan kekuatan dan keawetannya. Desainnya yang sederhana namun elegan membuat meja ini cocok ditempatkan di berbagai ruang, seperti ruang tamu, ruang makan, atau bahkan ruang kerja.">
+    <meta name="keywords" content="meja makan kayu, meja furniture">
+@endsection
 @section('content')
     <div class="product-section mt-150 mb-150">
         <div class="container">
@@ -16,7 +20,11 @@
                         Meja kayu minimalis ini terbuat dari kayu jati solid yang terkenal dengan kekuatan dan keawetannya.
                         Desainnya yang sederhana namun elegan membuat meja ini cocok ditempatkan di berbagai ruang, seperti
                         ruang tamu, ruang makan, atau bahkan ruang kerja. Permukaan meja yang halus dan lapisan finishing
-                        yang rapi memberikan sentuhan akhir yang sempurna dan tahan terhadap goresan. </p>
+                        yang rapi memberikan sentuhan akhir yang sempurna dan tahan terhadap goresan. Bagi Anda yang
+                        menginginkan meja dengan spesifikasi khusus, kami menawarkan layanan <a href="{{ route('home.custom-design') }}">custom design</a>. Selain itu, Anda
+                        juga bisa melengkapi ruang kecil Anda dengan pilihan <a href="{{ route('home.mini-furniture') }}">mini furniture</a> kami yang fungsional dan
+                        stylish.
+                    </p>
                 </div>
                 <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-5">
                     <h2 class="text-center orange-text">Spesifikasi</h2>

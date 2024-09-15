@@ -1,5 +1,9 @@
 @extends('home.layout')
-@section('title', 'Furniture Kayu Jati')
+@section('title', 'Mini Furniture')
+@section('meta-tags')
+    <meta name="description" content="Bawa pesona kecil ke ruangan Anda dengan set mini furniture kami. Set ini terdiri dari kursi, meja, dan lemari kecil yang dibuat dengan detail halus dan presisi. Didesain untuk memberikan sentuhan dekoratif yang manis dan fungsional di ruang terbatas.">
+    <meta name="keywords" content="furniture mini, minimalis furniture">
+@endsection
 @section('content')
     <div class="product-section mt-150 mb-150">
           <div class="container">
@@ -13,10 +17,13 @@
                     <h3 class="font-weight-normal">Rp.1.500.000</h3>
 
                     <p style="text-align: justify;">
-                        Bawa pesona kecil ke ruangan Anda dengan set mini furniture kami. Set ini terdiri dari kursi, meja,
-                        dan lemari kecil yang dibuat dengan detail halus dan presisi. Didesain untuk memberikan sentuhan
-                        dekoratif yang manis dan fungsional di ruang terbatas. Cocok untuk kolektor miniatur atau sebagai
-                        tambahan menarik untuk dekorasi rumah Anda. </p>
+                        Bawa pesona kecil ke ruangan Anda dengan set mini furniture kami. Set ini terdiri dari kursi, <a href="{{ route('home.meja-kayu-jati') }}">meja kayu</a>,
+                        dan lemari kecil yang dibuat dengan detail halus dan presisi. Didesain untuk memberikan
+                        sentuhan dekoratif yang manis dan fungsional di ruang terbatas. Cocok untuk kolektor miniatur atau
+                        sebagai tambahan menarik untuk dekorasi rumah Anda. Kami juga menyediakan berbagai pilihan <a href="{{ route('home.furniture-kayu-jati') }}">furniture kayu</a>
+                        dengan kualitas terbaik, serta layanan <a href="{{ route('home.custom-design') }}">custom design</a> untuk menciptakan furnitur yang sesuai
+                        dengan gaya dan kebutuhan spesifik Anda.
+                    </p>
                 </div>
                 <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-5">
                     <h2 class="text-center orange-text">Spesifikasi</h2>

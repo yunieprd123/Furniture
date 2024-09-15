@@ -7,12 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-    <meta name="description"
-        content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
-
     <!-- title -->
     <title> 
-        @yield('title'){{$judul ?? ''}} | Menak Furniture</title>
+        @yield('title'){{$judul ?? ''}} | Menak Furniture
+    </title>
+    @yield('meta-tags')
 
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="home/assets/img/logo-menak-furniture.png">
@@ -100,6 +99,14 @@
 
     @stack('script')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWPZC0M8N5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FWPZC0M8N5');
+    </script>
 
     <!-- jquery -->
     <script src="{{ asset('home/assets/js/jquery-1.11.3.min.js') }} "></script>
