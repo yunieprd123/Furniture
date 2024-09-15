@@ -24,10 +24,14 @@
                     <!-- menu start -->
                     <nav class="main-menu">
                         <ul>
-                            <li class="current-list-item"><a href="{{ url('/') }}">Home</a>
+                            <li class="{{ Request::routeIs('home') ? 'current-list-item' : '' }} "><a
+                                    href="{{ url('/') }}">Home</a>
                             </li>
-                            <li><a href="{{ route('home.tentang-kami') }}">Tentang Kami</a></li>
-                            <li><a href="#">Layanan Kami</a>
+                            <li class="{{ Request::routeIs('home.tentang-kami') ? 'current-list-item' : '' }} "><a
+                                    href="{{ route('home.tentang-kami') }}">Tentang Kami</a></li>
+                            <li
+                                class="{{ Request::routeIs('home.furniture-kayu-jati') || Request::routeIs('home.lemari-kayu-jati') || Request::routeIs('home.meja-kayu-jati') || Request::routeIs('home.custom-design') || Request::routeIs('home.mini-furniture') ? 'current-list-item' : '' }} ">
+                                <a href="#">Layanan Kami</a>
                                 <ul class="sub-menu">
                                     <li> <a href="{{ route('home.furniture-kayu-jati') }}"> Furniture Kayu
                                             Jati</a></li>
@@ -37,8 +41,8 @@
                                     <li><a href="{{ route('home.mini-furniture') }}">Mini Furniture</a></li>
                                 </ul>
                             </li>
-                            </li>
-                            <li><a href="{{ route('home.kontak-kami') }}">Kontak Kami</a></li>
+                            <li class="{{ Request::routeIs('home.kontak-kami') ? 'current-list-item' : '' }} "><a
+                                    href="{{ route('home.kontak-kami') }}">Kontak Kami</a></li>
                             <li>
                                 <div class="header-icons">
                                     <!-- <a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a> -->

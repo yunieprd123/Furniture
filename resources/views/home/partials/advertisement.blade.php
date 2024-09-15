@@ -8,7 +8,7 @@
 				</div>
 				<div class="col-lg-6 col-md-12">
 					<div class="abt-text">
-						<p class="top-sub">Since Year 2000</p>
+						<p class="top-sub">Sejak Tahun 2000</p>
 						<h2>Menak <span class="orange-text">Furniture</span></h2>
 						<p>Bergaya dengan keanggunan! Menak Furniture menawarkan lebih dari sekadar furnitur; kami hadir untuk membantu mengukir cerita kebahagiaan di setiap ruangan. Mari, temukan inspirasi baru untuk rumah impianmu!</p>
 						<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente facilis illo repellat veritatis minus, et labore minima mollitia qui ducimus.</p> -->

@@ -4,7 +4,7 @@
         <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
             <div class="small-box bg-info">
                 <div class="inner">
-                    <h3>150</h3>
+                    <h3>{{$jumlah_produk}}</h3>
 
                     <p>Jumlah Produk</p>
                 </div>
@@ -17,12 +17,12 @@
         <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
             <div class="small-box bg-primary">
                 <div class="inner">
-                    <h3>150</h3>
+                    <h3>{{$jumlah_user}} </h3>
 
                     <p>Jumlah User</p>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-bag"></i>
+                    <i class="ion ion-person"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -30,12 +30,12 @@
         <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
             <div class="small-box bg-warning">
                 <div class="inner">
-                    <h3>150</h3>
+                    <h3> {{$jumlah_transaksi}} </h3>
 
                     <p>Jumlah Transaksi</p>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-bag"></i>
+                    <i class="ion ion-stats-bars"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -43,9 +43,9 @@
         <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6">
             <div class="small-box bg-secondary">
                 <div class="inner">
-                    <h3>150</h3>
+                    <h3>{{$jumlah_transaksi_selesai}}</h3>
 
-                    <p>New Orders</p>
+                    <p>Jumlah Transaksi Selesai</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-bag"></i>
@@ -100,7 +100,7 @@
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">
-                                @foreach ($data['transaksis'] as $item)
+                                @foreach ($transaksis as $item)
                                     <tr>
                                         <td scope="row">{{ $loop->iteration }}</td>
                                         <td>{{ $item->number }}</td>
@@ -155,10 +155,10 @@
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: @json($data['penjualanLabels']),
+                labels: @json($penjualanLabels),
                 datasets: [{
                     label: 'Data',
-                    data: @json($data['penjualanData']),
+                    data: @json($penjualanData),
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',
                     borderWidth: 1
@@ -178,10 +178,10 @@
         var myPieChart = new Chart(ctxPie, {
             type: 'pie',
             data: {
-                labels: @json($data['penjualanLabels']), // Tanggal
+                labels: @json($penjualanLabels),
                 datasets: [{
                     label: 'Jumlah Transaksi',
-                    data: @json($data['penjualanData']), // Jumlah transaksi
+                    data: @json($penjualanData),
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',

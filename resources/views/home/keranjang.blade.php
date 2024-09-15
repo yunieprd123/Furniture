@@ -35,7 +35,7 @@
                                                 <h5 class="text-truncate font-size-18"><a href="#"
                                                         class="text-dark">{{ $item->product->nama_produk }} </a></h5>
 
-                                                <p class="mb-0 mt-1">Color : <span class="fw-medium">Gray</span></p>
+                                                <p class="mb-0 mt-1">{{$item->product->deskripsi}}</span></p>
                                             </div>
                                         </div>
                                         <div class="flex-shrink-0 ms-2">
