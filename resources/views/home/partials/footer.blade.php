@@ -33,9 +33,9 @@
             <div class="col-lg-3 col-md-6">
                 <div class="footer-box subscribe">
                     <h2 class="widget-title">Faq</h2>
-                    <p>Subscribe to our mailing list to get the latest updates.</p>
+                   
                     <form action="index.html">
-                        <input type="email" placeholder="Email">
+                        <input type="email" >
                         <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
