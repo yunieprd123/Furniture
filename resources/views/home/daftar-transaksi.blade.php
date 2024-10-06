@@ -73,32 +73,19 @@
                             @foreach ($item->transaksiProduct as $transaksiProduct)
                                 <div class="card-body mb-0 pb-1">
 
-                                    <div class="d-flex align-items-start border-bottom pb-3">
-                                        <div class="mr-5">
-                                            <img src="https://www.bootdey.com/image/100x100/008B8B/000000" alt=""
-                                                class="avatar-lg rounded">
+                                    <div class="row row-cols-2">
+                                        <div class="col-4 d-flex justify-content-center">
+                                            <img src="{{ asset('produk/' . $transaksiProduct->product->gambar_produk) }}"
+                                                alt="" style="max-height:150px; ">
                                         </div>
-                                        <div class="flex-grow-1 align-self-center overflow-hidden">
+                                        <div class="col-8">
                                             <div>
                                                 <h5 class="text-truncate font-size-18"><a href="#"
                                                         class="text-dark">{{ $transaksiProduct->product->nama_produk }} </a>
                                                 </h5>
                                             </div>
                                         </div>
-                                        <div class="flex-shrink-0 ms-2">
-                                            <ul class="list-inline mb-0 font-size-16">
-                                                <li class="list-inline-item">
-                                                    <a href="#" class="text-muted px-1">
-                                                        <i class="mdi mdi-trash-can-outline"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a href="#" class="text-muted px-1">
-                                                        <i class="mdi mdi-heart-outline"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
+
                                     </div>
                                     <div>
                                         <div class="row mb-0">
@@ -273,12 +260,12 @@
                             @foreach ($itemSelesai->transaksiProduct as $transaksiProductSelesai)
                                 <div class="card-body mb-0 pb-1">
 
-                                    <div class="d-flex align-items-start border-bottom pb-3">
-                                        <div class="mr-5">
-                                            <img src="https://www.bootdey.com/image/100x100/008B8B/000000" alt=""
-                                                class="avatar-lg rounded">
+                                    <div class="row row-cols-2">
+                                        <div class="col-4 d-flex justify-content-center">
+                                            <img src="{{ asset('produk/' . $transaksiProductSelesai->product->gambar_produk) }}"
+                                                alt="" style="max-height:150px; ">
                                         </div>
-                                        <div class="flex-grow-1 align-self-center overflow-hidden">
+                                        <div class="col-8">
                                             <div>
                                                 <h5 class="text-truncate font-size-18"><a href="#"
                                                         class="text-dark">{{ $transaksiProductSelesai->product->nama_produk }}
@@ -286,20 +273,7 @@
                                                 </h5>
                                             </div>
                                         </div>
-                                        <div class="flex-shrink-0 ms-2">
-                                            <ul class="list-inline mb-0 font-size-16">
-                                                <li class="list-inline-item">
-                                                    <a href="#" class="text-muted px-1">
-                                                        <i class="mdi mdi-trash-can-outline"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a href="#" class="text-muted px-1">
-                                                        <i class="mdi mdi-heart-outline"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
+
                                     </div>
                                     <div>
                                         <div class="row mb-0">
@@ -350,11 +324,11 @@
                                 <div class="col-12">
 
                                     @if ($itemSelesai->whereHas('reviews')->get())
-                                      <div class="row">
-                                        <div class="col-6">
-                                            <label for="">Ulasan Anda</label>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label for="">Ulasan Anda</label>
+                                            </div>
                                         </div>
-                                      </div>
                                     @else
                                         <button class="btn btn-dark shadow border w-100" data-bs-toggle="modal"
                                             data-id="{{ $itemSelesai->id }}" data-bs-target="#ulasanModal">

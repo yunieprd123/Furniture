@@ -26,17 +26,6 @@ use App\Http\Controllers\ReviewController;
 
 route::get('/', [HomeController::class, 'index']);
 
-// Route::middleware([
-//     'auth:sanctum',
-//     config('jetstream.auth_session'),
-//     'verified',
-// ])->group(function () {
-//     Route::get('/dashboard', function () {
-//         return view('dashboard');
-//     })->name('dashboard');
-// });
-
-
 
 
 
@@ -84,13 +73,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('review', [ReviewController::class, 'index'])->name('review.index');
         Route::get('review/show/{id}', [ReviewController::class, 'show'])->name('review.edit');
-        // Review/Komentar
-        // Route::get('product', [Review::class, 'index'])->name('product.index');
-        // Route::get('product/create', [ProductController::class, 'create'])->name('product.create');
-        // Route::post('product/store', [ProductController::class, 'store'])->name('product.store');
-        // Route::get('product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
-        // Route::post('product/update/{id}', [ProductController::class, 'update'])->name('product.update');
-        // Route::get('product/destroy/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
+       
     });
 
     Route::get('/formulir-pembayaran', [TransaksiController::class, 'buatOrder'])->name('home.bayar');
